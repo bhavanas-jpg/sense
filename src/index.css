@@ -8,6 +8,7 @@ ul li{
   list-style: none;
 }
 
+
   body {
     background-color: rgba(0, 0, 0, 0);
     background-image: linear-gradient(
@@ -25,6 +26,11 @@ ul li{
   margin: 0 auto;
   padding: 20px;
 }
+.dis-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 @media(min-width: 768px){
   .container {
       max-width: 700px;
@@ -36,4 +42,10 @@ ul li{
       max-width: 1020px;
       margin: 0 auto;
   }
+}
+  @media(min-width: 1440px){
+    .container {
+        max-width: 1420px;
+        margin: 0 auto;
+    }
 }

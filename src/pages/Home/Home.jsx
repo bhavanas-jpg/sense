@@ -35,7 +35,7 @@ getCategories();
         <div className="hero-text">
           <h1>Glowing Skin, naturally</h1>
           <p>Indulge in plant-based skin care for naturally radiant results.</p>
-          <Link className="shop-btn" to="/product">
+          <Link className="shop-btn" to="/products">
             Shop Now
           </Link>
         </div>
