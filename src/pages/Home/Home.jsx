@@ -43,7 +43,7 @@ getCategories();
           <img src={heroImage} alt="hero-image" />
         </div>
       </section>
-      <section className="feature-sec">
+       <section className="feature-sec">
         <Feature
           img={vegan}
           title="Vegan"
@@ -69,7 +69,7 @@ getCategories();
       <section className="category-sec">
         {
           categories &&
-          categories.map(({_id,image,categoryName})=>(
+          categories.slice(0,3).map(({_id,image,categoryName})=>(
             <div className="card-content"
             key={_id}>
               <img className="card-image" src={image} alt="" />

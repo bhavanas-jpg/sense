@@ -28,4 +28,9 @@ export const categories = [
     categoryName: "Nail Polish",
     description: "Rich colors that last, without any of the toxic ingredients typically found in nail polish.",
   },
+  {
+    _id: uuid(),
+    categoryName:"Hair Care",
+    description: "Expertly blended shampoos and conditioners mean every day can be a good hair day."
+  }
 ];

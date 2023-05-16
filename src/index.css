@@ -23,6 +23,7 @@ ul li{
 .container {
   max-width: 400px;
   margin: 0 auto;
+  padding: 20px;
 }
 @media(min-width: 768px){
   .container {
