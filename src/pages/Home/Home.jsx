@@ -10,9 +10,10 @@ import compostable from "../../assets/home_page_images/compostable.png";
 import arrow from "../../assets/home_page_images/arrow-right.svg"
 
 import "./Home.css";
-import Feature from "../../components/Features/Feature";
+import Feature from "./Features/Feature";
 
 const Home = () => {
+  // const {state, dispatch} = useData();
 const [categories, setCategories] = useState([]);
 
 
