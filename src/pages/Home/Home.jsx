@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
+import { useData } from '../../context/DataContext';
 import axios from "axios"
+import { actionTypes,filters } from "../../reducer/actionTypes";
 
 import heroImage from "../../assets/home_page_images/hero_image.jpg";
 import vegan from "../../assets/home_page_images/vegan.png";
@@ -13,7 +15,9 @@ import "./Home.css";
 import Feature from "./Features/Feature";
 
 const Home = () => {
-  // const {state, dispatch} = useData();
+
+const navigate = useNavigate();  
+const {state, dispatch} = useData();
 const [categories, setCategories] = useState([]);
 
 
@@ -29,6 +33,23 @@ const getCategories =async()=>{
 getCategories();
 },[])
 
+
+const categoryFilter =(category)=>{
+ dispatch({
+  type: actionTypes.CHANGE_FILTER,
+  payload:{
+    filterType: filters.CATEGORIES,
+    filterValue :{
+      ...Object.keys(state.filters.categories).reduce(
+        (acc,curr)=>{
+          return { ...acc, [curr]: false};
+        } ,{}),
+        [category]: true       
+    }
+  }
+})
+ navigate('/products')
+}
 
   return (
     <main className="container">
@@ -71,13 +92,13 @@ getCategories();
         {
           categories &&
           categories.slice(0,3).map(({_id,image,categoryName})=>(
-            <div className="card-content"
+            <div onClick={()=> categoryFilter(categoryName)}
+            className="card-content"
             key={_id}>
               <img className="card-image" src={image} alt="" />
               <h3 className="card-heading">{categoryName}
               <img className="arrow-img" src={arrow} alt="" />
-              </h3>
-             
+              </h3>       
               </div>
             
           ))

@@ -100,7 +100,9 @@
   width: 315px;
   border-radius: 12px;
   margin: 0 14px;
-  
+}
+.card-content:hover .card-heading  {
+ text-decoration: underline;
 }
 
 .card-content .card-image {
