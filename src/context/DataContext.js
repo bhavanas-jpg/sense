@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer, useState } from "react";
 import { dataReducer , inititalState } from "../reducer/DataReducer";
 import { getAllCategories, getAllProducts } from "../services/services";
 
@@ -7,7 +7,7 @@ export const DataContext = createContext(null);
 
 export const DataProvider = ({children})=>{
     const [state, dispatch] = useReducer(dataReducer, inititalState);
-    
+    const [loader, setLoader] = useState(false);
 
     useEffect(()=>{
      (async()=>{
@@ -32,7 +32,7 @@ export const DataProvider = ({children})=>{
 
 
     return(
-        <DataContext.Provider value={{state, dispatch}}>
+        <DataContext.Provider value={{state, dispatch, loader, setLoader}}>
             {children}
         </DataContext.Provider>
     )

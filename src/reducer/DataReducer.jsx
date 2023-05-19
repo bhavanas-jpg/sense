@@ -11,7 +11,7 @@ export const inititalState={
     productsData: []
 }
 
-console.log(inititalState.filters)
+
 export const dataReducer =(state, action)=>{
     console.log(state)
     switch(action.type){

@@ -35,6 +35,10 @@ const Navbar = () => {
                   <i class=" fa fa-thin fa-user"></i>
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink to="/logout">Logout</NavLink>
+              </li>
             </ul>
           </div>
         </nav>
