@@ -26,6 +26,7 @@ const ProductCard = ( {product}) => {
 
 
   const {_id,name,img,price,ratings} = product;
+  console.log(product);
  
   const addToCartServerCall = async() =>{
     setAddingToCart(true);
@@ -80,12 +81,6 @@ const ProductCard = ( {product}) => {
     }
 
   }
-
-
-
-
-
-  
 
   useEffect(()=>{  
     cartProducts.find((item) => item?._id === product?._id) && setInCart(true);
