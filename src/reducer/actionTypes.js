@@ -1,6 +1,10 @@
 export const actionTypes ={
     CHANGE_FILTER: 'CHANGE_FILTER',
     CLEAR_FILTER: 'CLEAR_FILTER',
+    SET_CART : 'SET_CART',
+    SET_WISHLIST : 'SET_WISHLIST ',
+    SET_ADDRESSLIST: 'SET_ADDRESSLIST',
+    SET_ORDERS: 'SET_ORDERS'
 }
 
 export const filters ={

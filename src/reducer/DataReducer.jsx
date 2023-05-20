@@ -8,7 +8,9 @@ export const inititalState={
         search: '',
         priceRange: 50
     },
-    productsData: []
+    productsData: [],
+    cartProducts: [],
+    wishlistProducts: []
 }
 
 
@@ -52,6 +54,17 @@ export const dataReducer =(state, action)=>{
                     [filters.PRICE_RANGE ]: maxValue
                 }
             }
+        case actionTypes.SET_CART: 
+        return{
+            ...state,
+            cartProducts: [...action.payload.cart]
+        }
+        case actionTypes.SET_WISHLIST: 
+        return{
+            ...state,
+            wishlistProducts: [...action.payload.wishlist]
+        }
+
             default:
                 return state;
     }

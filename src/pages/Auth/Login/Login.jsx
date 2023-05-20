@@ -39,26 +39,34 @@ const loginHandler= async(e, email, password)=>{
 
 
   return (
-    <>
+    <div className="container">
     <h5>Login </h5>
     <form onSubmit={(e) => loginHandler(e, formVal.email, formVal.password)}>
-    <label>Email Address</label>
+      <div style={{display: "flex", flexDirection: "column"}}>
+      <label>Email Address</label>
     <input 
+    style={{width: "230px"}}
     type="email"
     required
     value={formVal.email}
     onChange={(e)=> setFormVal(prev=>({...prev, email: e.target.value}) )}
     />
-
+      </div>
+   
+    <div style={{display: "flex", flexDirection: "column"}}>
     <label>Password</label>
     <input 
+    style={{width: "230px"}}
     type="password"
     required
     value={formVal.password}
     onChange={(e)=> setFormVal(prev=>({...prev, password: e.target.value}) )} 
     />
+    </div>
+    
 
   <button type="submit">Login</button>
+
   <button
    type="submit"
    onClick={(e) =>
@@ -71,7 +79,7 @@ const loginHandler= async(e, email, password)=>{
     `</p>
   </div>
     </form>
-    </>
+    </div>
    
   )
 }

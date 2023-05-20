@@ -29,6 +29,9 @@ flex-wrap: wrap;
     margin-bottom: 6px;
     height: 2.5rem;
 }
+.product_card:hover .product-card--title{
+    text-decoration: underline;
+}
 .cart-btn{
     padding: 10px 15px;
     margin: 10px 0 0px 0;
@@ -70,3 +73,8 @@ flex-wrap: wrap;
    /* color: rgb(214, 17, 17); */
     margin-right: 11px;
 }
+.wishlist-btn i.active {
+    color: rgb(228, 75, 75);
+    transition: 0.2s ease-in-out;
+}
+
