@@ -22,6 +22,9 @@ const Navbar = () => {
           </div>
           <div >
             <ul className="list">
+            <li className="list-items">
+              <NavLink to="/products">Shop</NavLink>
+              </li>
               <li className="list-items">
                 <NavLink to="/wishlist">
                   <i class=" fa fa-thin fa-heart"></i>

@@ -1,13 +1,10 @@
 import {  sortBy } from "../reducer/actionTypes";
 
 const getCategoryData = (...arr)=>{
-    console.log(arr);
-    const categoryData = arr.reduce((acc,curr)=>{
-        console.log(acc);
-        console.log(curr)
+    const categoryData = arr.reduce((acc,curr)=>{    
         return acc.concat(curr.filter((ele)=> !acc.some((item)=> item._id===ele._id )))
     },[])
-    console.log(categoryData);
+
     return categoryData;
 }
 

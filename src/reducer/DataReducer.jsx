@@ -15,7 +15,7 @@ export const inititalState={
 
 
 export const dataReducer =(state, action)=>{
-    console.log(state)
+
     switch(action.type){
         case "GET_DATA":
             return {

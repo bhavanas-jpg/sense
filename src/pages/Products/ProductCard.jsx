@@ -26,7 +26,7 @@ const ProductCard = ( {product}) => {
 
 
   const {_id,name,img,price,ratings} = product;
-  console.log(product);
+
  
   const addToCartServerCall = async() =>{
     setAddingToCart(true);
@@ -87,8 +87,7 @@ const ProductCard = ( {product}) => {
     wishlistProducts.find((item) => item._id === product._id && setWishlist({...wishlist,inWishlist:true }))
   }, [cartProducts,wishlistProducts ])
 
-  console.log(wishlistProducts);
-  console.log(wishlist.inWishlist);
+
 
   return (
  <>

@@ -1,14 +1,14 @@
 import axios from "axios";
 
-export const loginService = async(email, password) => {
-	return await axios.post("/api/auth/login", {
+export const loginService = (email, password) => {
+	return  axios.post("/api/auth/login", {
 		email,
 		password,
 	});
  };
  
- export const signUpService = async(firstName, lastName, email, password) =>{
-  return await axios.post("/api/auth/signup", {
+ export const signUpService = (firstName, lastName, email, password) =>{
+  return  axios.post("/api/auth/signup", {
     firstName,
     lastName,
     email,
@@ -16,12 +16,12 @@ export const loginService = async(email, password) => {
  })
  }
  
-export const getAllProducts = async()=> axios.get('/api/products');
+export const getAllProducts = ()=> axios.get('/api/products');
 
-export const getAllCategories = async()=> axios.get('/api/categories');
+export const getAllCategories = ()=> axios.get('/api/categories');
 
-export const addToCartService = async(product, token)=>{
-  return await axios.post("/api/user/cart", 
+export const addToCartService = (product, token)=>{
+  return  axios.post("/api/user/cart", 
                 {product},
                 {headers: {authorization: token}}
                 )
