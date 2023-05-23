@@ -6,13 +6,14 @@ import { actionTypes } from "../reducer/actionTypes";
 import { useAuth } from "./AuthContext";
 import { getCartService } from "../services/cart-services/getCartService";
 import { getWishlistService } from "../services/wishlist-services";
+import { getAddress } from "../services/address-services/getAddress";
 
 export const DataContext = createContext(null);
 
 export const DataProvider = ({children})=>{
     const [state, dispatch] = useReducer(dataReducer, inititalState);
     const [loader, setLoader] = useState(false);
-   const {SET_CART, SET_WISHLIST} = actionTypes;
+   const {SET_CART, SET_WISHLIST, SET_ADDRESSLIST} = actionTypes;
    const {auth} = useAuth();
 
 
@@ -45,6 +46,21 @@ export const DataProvider = ({children})=>{
             console.error(error);
         }
        })();
+      (async()=>{
+        try{
+            const res = await getAddress(auth.token);
+            if(res.status === 200){
+                dispatch({
+                    type: SET_ADDRESSLIST,
+                    payload: {
+                     addressList : res.data.addressList   
+                    }
+                })
+            }
+        }catch(error){
+            console.error(error);
+        }
+      })();
 
         }
 

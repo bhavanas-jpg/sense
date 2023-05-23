@@ -10,7 +10,8 @@ export const inititalState={
     },
     productsData: [],
     cartProducts: [],
-    wishlistProducts: []
+    wishlistProducts: [],
+    addressList : []
 }
 
 
@@ -64,7 +65,11 @@ export const dataReducer =(state, action)=>{
             ...state,
             wishlistProducts: [...action.payload.wishlist]
         }
-
+        case actionTypes.SET_ADDRESSLIST :
+        return{
+                ...state,
+                addressList: [...action.payload.addressList]
+        }
             default:
                 return state;
     }

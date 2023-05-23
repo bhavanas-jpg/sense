@@ -16,7 +16,7 @@ const loginHandler= async(e, email, password)=>{
   e.preventDefault();
   try{
     const res = await loginService(email, password);
-    console.log(res , "login response");
+    console.log(res.data , "login response");
     if(res.status === 200){
 
       localStorage.setItem("token", res.data.encodedToken);

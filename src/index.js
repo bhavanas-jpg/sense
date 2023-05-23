@@ -7,6 +7,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import "./css/fonts.css"
 import { DataProvider } from "./context/DataContext";
 import { AuthProvider } from "./context/AuthContext";
+import { AddressProvider } from "./context/AddressContext";
 
 // Call make Server
 makeServer();
@@ -16,7 +17,9 @@ ReactDOM.render(
     <Router>
       <AuthProvider>
       <DataProvider>
-    <App /> 
+        <AddressProvider>
+         <App /> 
+        </AddressProvider>
     </DataProvider>
     </AuthProvider>
     </Router>
