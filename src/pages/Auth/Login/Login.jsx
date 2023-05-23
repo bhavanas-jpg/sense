@@ -11,14 +11,14 @@ const navigate = useNavigate();
 const location = useLocation();
 const from =  ( location?.state?.from?.pathname) || "/";
 
-
-
 const loginHandler= async(e, email, password)=>{
   setFormVal({email, password});
   e.preventDefault();
   try{
     const res = await loginService(email, password);
+    console.log(res , "login response");
     if(res.status === 200){
+
       localStorage.setItem("token", res.data.encodedToken);
       localStorage.setItem("isAuth", true);
 

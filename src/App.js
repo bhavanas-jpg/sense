@@ -11,6 +11,10 @@ import Login from "./pages/Auth/Login/Login";
 import Signup from "./pages/Auth/SignUp/Signup";
 import Logout from "./pages/Auth/Logout/Logout";
 import ProductDetails from "./pages/Products/ProductDetails";
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Profile from "./pages/UserProfile/Profile/Profile";
+import Orders from "./pages/UserProfile/Orders/Orders";
+import Addresses from "./pages/UserProfile/Addresses/Addresses";
 
 
 function App() {
@@ -35,6 +39,13 @@ function App() {
             </PrivateRoute>
           }
         />
+       <Route path="/profile" element={<UserProfile />}>
+        <Route path="/profile" element={<Profile />}/>
+        <Route path="/profile/orders" element={<Orders />}/>
+        <Route path="/profile/addresses" element={<Addresses />}/>
+       </Route>
+
+
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/products" element={<Products />} />
