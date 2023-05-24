@@ -13,14 +13,23 @@ const AddressCard = ({address}) => {
     )
   return (
     <div>
-     {/* <p><b>{address.name}</b></p>
+     <p><b>{address.name}</b></p>
      <p>{address.street}</p>
      <p>{address.city}, {address.state}</p>
      <p>{address.country} -{address.pincode}</p>
-     <p>Phone Number: {address.phone}</p> */}
+     <p>Phone Number: {address.phone}</p>
 
-     <button>Edit</button>
-     <button>Delete</button>
+     <button 
+     onClick={()=> setAddressState(
+      {
+        addNewAddress : true,
+        currAddress : { ...address}
+      }
+     )}
+     >Edit</button>
+     <button
+     onClick = {()=> removeAddressServerCall()}
+     >Delete</button>
 
 
     </div>

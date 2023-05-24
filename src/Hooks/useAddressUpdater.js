@@ -18,6 +18,9 @@ import { useData } from "../context/DataContext";
 import { actionTypes } from "../reducer/actionTypes";
 
 export const useAddressUpdater = (serviceFunction, address, msg) =>{
+
+    console.log(serviceFunction);
+    console.log(address);
     const {
         auth: {token}
     } = useAuth();
