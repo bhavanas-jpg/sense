@@ -1,167 +1,146 @@
-import {Response} from "miragejs";
-import {formatDate, requiresAuth} from "../utils/authUtils";
-import {v4 as uuid} from "uuid";
+import { Response } from "miragejs";
+import { formatDate, requiresAuth } from "../utils/authUtils";
 
-export const getAddressListHandler = function (schema, request){
-    const userId = requiresAuth.call(this, request);
-    if(!userId){
-        new Response(
-            404,
-            {},
-            {
-                errors: ["The email you entered is not registered. Not found error"]
-            }
-        );
-    }
-    const userAddressList = schema.users.findBy({_id: userId}).addressList;
-    return new Response(200, {}, {addressList: userAddressList});
-}
+/**
+ * All the routes related to Address are present here.
+ * These are private routes.
+ * Client needs to add "authorization" header with JWT token in it to access it.
+ * */
 
-export const addAddressHandler = function (schema, request){
-    const userId = requiresAuth.call(this, request);
-    try{
-        if(!userId){
-            new Response(
-                404,
-                {},
-                {
-                   errors: ["The email you entered is not registered. not found error"] 
-                }
-            );
-        }
-        const userAddressList = schema.users.findBy({
-            _id : userId,
-        }).addressList;
-        const {address} = JSON.parse(request.requestBody);
-        userAddressList.push({
-            ...address,
-            _id: uuid(),
-            createdAt: formatDate(),
-            updatedAt : formatDate()
-        });
-        this.db.users.update(
-            {
-            _id: userId
-            },{
-                addressList : userAddressList
-            });
-            return new Response(
-                201,
-                {},
-                {
-                    addressList: userAddressList
-                }
-            )
-    }catch(error){
-        return new Response(
-            500,
-            {},
-            {
-                error
-            }
-        )
-    }
+/**
+ * This handler handles getting all addresses from user.
+ * send GET Request at /api/user/addresses
+ * */
+
+export const getAllAddressesHandler = function (schema, request) {
+  const userId = requiresAuth.call(this, request);
+  if (!userId) {
+    return new Response(
+      404,
+      {},
+      {
+        errors: ["The email you entered is not Registered. Not Found error"],
+      }
+    );
+  }
+  const userAddresses = schema.users.findBy({ _id: userId }).address;
+  return new Response(200, {}, { address: userAddresses });
 };
 
-export const removeAddressHandler = function (schema, request){
+/**
+ * This handler handles adding an address to user.
+ * send POST Request at /api/user/address
+ * body contains {address}
+ * */
+
+export const addNewAddressHandler = function (schema, request) {
     const userId = requiresAuth.call(this, request);
-   try{
-   if(!userId){
-    new Response(
-        404,
-        {},
-        {
-            errors: ["The email you entered is not registered. Not found error"],
-        }
-    );
-   }
-   let userAddressList = schema.users.findBy({
-    _id: userId,
-   }).addressList;
-
-  const addressId = request.params.addressId;
-
-  userAddressList = userAddressList.filter((item)=> 
-  item._id !== addressId);
-  this.db.users.update(
-    {
-        _id: userId,
-    },{
-        addressList : userAddressList
-    }
-  );
-  return new Response(
-   200,
-   {} ,
-   {
-    addressList : userAddressList
-   }
-  );
-   } catch(error){
-    return new Response(
+    try {
+      if (!userId) {
+        return new Response(
+          404,
+          {},
+          {
+            errors: ["The email you entered is not Registered. Not Found error"],
+          }
+        );
+      }
+      const userAddresses = schema.users.findBy({ _id: userId }).address;
+      const { address } = JSON.parse(request.requestBody);
+      userAddresses.push({
+        ...address,
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+      });
+      this.db.users.update({ _id: userId }, { address: userAddresses });
+      return new Response(201, {}, { address: userAddresses });
+    } catch (error) {
+      return new Response(
         500,
         {},
         {
-            error,
+          error,
         }
-    );
-   }
-};
-
-export const updateAddressHandler = function (schema, request){
-    const addressId = request.params.addressId;
-    const userId = requiresAuth.call(this, request);
-
-    try{
-        if(!userId){
-            new Response(
-                404,
-                {},
-                {
-                    errors: ["The email you entered is not registered. Not Found error"]
-                }
-            );
-        }
-    const userAddressList = schema.users.findBy({
-        _id : userId,
-    }).addressList;
-
-  const {
-    address : {name, street, city, state, country, pincode, phone},
-  } = JSON.parse(request.requestBody);
-
-  userAddressList.forEach((address)=>{
-    if(address._id === addressId){
-        address.name = name;
-        address.street = street;
-        address.city = city;
-        address.state = state;
-        address.country = country;
-        address.pincode = pincode;
-        address.phone = phone;
-        address.updatedAt = formatDate();
+      );
     }
-  });
-this.db.users.update(
-    {
-    _id: userId,
-    },{
-        addressList : userAddressList,
-    });
-    return new Response(
-        200,
+  };
+
+  /** 
+ * This handler handles adding an address to user.
+ * send POST request at api/user/address/:addressId
+ * body contains { address }
+*/
+
+export const editAddressHandler = function (schema, request) {
+    const userId = requiresAuth.call(this, request);
+  
+      try {
+          if(!userId){
+              new Response(
+                  404,
+                  {},
+                  {
+                      errors: ["The email you entered is not Registered. Not Found error"],
+                  }
+              );
+          }
+  
+          const addressId = request.params.addressId;
+          const {address} = JSON.parse(request.requestBody);
+  
+          let userAddresses = schema.users.findBy({_id: userId}).address;
+  
+          userAddresses =  userAddresses.map((item)=>
+              item._id === addressId ? address : item
+          );
+  
+          this.db.users.update({_id: userId}, {address: userAddresses});
+          return new Response(201, {}, {address: userAddresses});
+  
+      } catch (error) {
+          return new Response(
+              500,
+              {},
+              {
+                  error,
+              }
+          );
+      }
+  };
+
+  /**
+ * This handler handles removing an address from user.
+ * send DELETE Request at /api/user/address/:addressId
+ * 
+ * */
+
+export const removeAddressHandler = function (schema, request) {
+    const userId = requiresAuth.call(this, request);
+    try {
+      if (!userId) {
+        return new Response(
+          404,
+          {},
+          {
+            errors: ["The email you entered is not Registered. Not Found error"],
+          }
+        );
+      }
+      let userAddresses = schema.users.findBy({ _id: userId }).address;
+      const addressId = request.params.addressId;
+  
+      userAddresses = userAddresses.filter((item) => item._id !== addressId);
+  
+      this.db.users.update({ _id: userId }, { address: userAddresses });
+      return new Response(200, {}, { address: userAddresses });
+      
+    } catch (error) {
+      return new Response(
+        500,
         {},
         {
-            addressList: userAddressList
+          error,
         }
-    );
-    }catch(error){
-        return new Response(
-            500,
-            {},
-            {
-                error
-            }
-        )
+      );
     }
-}
+  };

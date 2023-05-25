@@ -1,12 +1,11 @@
 .product-card-container{
 display: flex;
-justify-content: space-between;
 flex-wrap: wrap;
 }
 
 .product_card{
-    width: 220px;
-    margin-bottom: 1.8rem;
+    width: 260px;
+    margin: 0  0.8rem 1.8rem 0.8rem;
     position: relative;
     
 }

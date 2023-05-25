@@ -1,3 +1,13 @@
 .product-details{
     height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-image{
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.product-image-sec,
+.product-details-sec{
+flex: 50%;
 }

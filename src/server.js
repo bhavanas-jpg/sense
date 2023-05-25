@@ -24,10 +24,10 @@ import {
 } from "./backend/controllers/WishlistController";
 
 import {
-	getAddressListHandler,
-	addAddressHandler,
+	getAllAddressesHandler,
+	addNewAddressHandler,
 	removeAddressHandler,
-	updateAddressHandler,
+	editAddressHandler,
 } from "./backend/controllers/AddressController";
 
 import { categories } from "./backend/db/categories";
@@ -113,9 +113,9 @@ export function makeServer({ environment = "development" } = {}) {
       );
 
       // address routes (private)
-      this.get("/user/address", getAddressListHandler.bind(this));
-      this.post("/user/address", addAddressHandler.bind(this));
-      this.post("/user/address/:addressId", updateAddressHandler.bind(this));
+      this.get("/user/address", getAllAddressesHandler.bind(this));
+      this.post("/user/address", addNewAddressHandler .bind(this));
+      this.post("/user/address/:addressId", editAddressHandler.bind(this));
       this.delete("/user/address/:addressId", removeAddressHandler.bind(this));
     },
   });

@@ -20,6 +20,7 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
   if(res.status === 201){
     localStorage.setItem("token", res.data.encodedToken);
     localStorage.setItem("isAuth", true);
+    
 
     setAuth({
       token: res.data.encodedToken,
@@ -34,22 +35,15 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
  }catch(error){
   console.error(error);
  }
-
-
 } 
 
 
-
-
-
-
-
-
-
   return (
-    <>
-      <h1>Signup</h1>
-      <form onSubmit={(e) =>
+    <div className="container hg-100">
+    <div className='signup-container'> 
+      <form 
+      className='signup-form'
+      onSubmit={(e) =>
       signUpHandler(
         e,
         formVal.firstName,
@@ -58,13 +52,12 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
         formVal.password
       )
       } >
-
+        <h2>SIGN UP</h2>
       <div>
-        <label for="first-name">First Name</label>
         <input 
         type="text"
         id="first-name"
-        placeholder='Enter First Name'
+        placeholder=' First Name'
         value={formVal.firstName}
         required
         onChange={(e)=>
@@ -73,11 +66,11 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
         />
       </div>
       <div>
-        <label for="last-name">Last Name</label>
+       
         <input 
         type="text"
         id="last-name"
-        placeholder='Enter Last Name'
+        placeholder=' Last Name'
         value={formVal.lastName}
         required
         onChange={(e)=>
@@ -86,11 +79,10 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
         />
       </div>
       <div>
-        <label for="email-address">Email</label>
         <input 
         type="email"
         id="email-address"
-        placeholder='Enter Email'
+        placeholder='Email  Address'
         value={formVal.email}
         required
         onChange={(e)=>
@@ -98,23 +90,32 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
         />
       </div>
       <div>
-        <label for="pwd">Password</label>
         <input 
         type="password"
         id="pwd"
-        placeholder="Enter Password"
+        placeholder="Password"
         required
         onChange={(e)=>
         setFormVal((prev)=>({...prev, password: e.target.value}))}
         />
       </div>
-     <button type="submit">Sign Up</button>
-     <Link to="/login">
-     Already have an account
-     <i className=" fa fas fa-chevron-right"></i>
-     </Link>
+      <div>
+        <button 
+        className="signup-btn"
+      type="submit">
+        SIGN UP
+        </button>
+      </div>
+      <div>
+        <Link to="/login"
+        className="login-link"
+        >
+          Back to login</Link></div>
+   
+     
       </form>
-    </>
+      </div>
+    </div>
   
   )
 }

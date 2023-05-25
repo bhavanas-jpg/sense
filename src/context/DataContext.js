@@ -46,23 +46,9 @@ export const DataProvider = ({children})=>{
             console.error(error);
         }
        })();
-      (async()=>{
-        try{
-            const res = await getAddress(auth.token);
-            if(res.status === 200){
-                dispatch({
-                    type: SET_ADDRESSLIST,
-                    payload: {
-                     addressList : res.data.addressList   
-                    }
-                })
-            }
-        }catch(error){
-            console.error(error);
-        }
-      })();
 
-        }
+      
+}
 
     },[auth.isAuth])
 

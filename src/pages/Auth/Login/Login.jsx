@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loginService } from '../../../services/services';
+import "../Auth.css"
 
 
 const Login = () => {
 const[formVal, setFormVal]=useState({email:"", password:""});
-const {setAuth} = useAuth();
+const {setAuth, auth} = useAuth();
 const navigate = useNavigate();
 const location = useLocation();
 const from =  ( location?.state?.from?.pathname) || "/";
+
+console.log(auth);
 
 const loginHandler= async(e, email, password)=>{
   setFormVal({email, password});
@@ -37,48 +40,55 @@ const loginHandler= async(e, email, password)=>{
   }
 }  
 
-
   return (
-    <div className="container">
-    <h5>Login </h5>
-    <form onSubmit={(e) => loginHandler(e, formVal.email, formVal.password)}>
-      <div style={{display: "flex", flexDirection: "column"}}>
-      <label>Email Address</label>
-    <input 
-    style={{width: "230px"}}
+    <div className="container hg-100 login">
+      <div className='login-container'>    
+    <form 
+    className="login-form"
+    onSubmit={(e) => loginHandler(e, formVal.email, formVal.password)}>
+      <h2>Welcome</h2>
+    <p>Great to have you back!</p>
+     <div>
+     <input 
     type="email"
+    placeholder='Email Address'
     required
     value={formVal.email}
     onChange={(e)=> setFormVal(prev=>({...prev, email: e.target.value}) )}
     />
-      </div>
-   
-    <div style={{display: "flex", flexDirection: "column"}}>
-    <label>Password</label>
+     </div>
+     <div>     
     <input 
-    style={{width: "230px"}}
+    placeholder='Password'
     type="password"
     required
     value={formVal.password}
     onChange={(e)=> setFormVal(prev=>({...prev, password: e.target.value}) )} 
     />
-    </div>
-    
-
-  <button type="submit">Login</button>
-
-  <button
+     </div>
+     <div>
+     <button 
+     className="login-btn"
+     type="submit">LOG IN</button>
+     </div>
+     <div>
+     <button
+     className="guest-login"
    type="submit"
    onClick={(e) =>
     loginHandler(e, "adarshbalika@gmail.com", "adarshbalika")}         
-  >Login As a Guest</button>
+  >Login As  Guest</button>
 
+     </div>
   <div>
-    <p>Don't have an account?
-        <Link to="/signup">Sign Up</Link>
-    `</p>
+    <p>Don't have an account ?
+        <Link 
+        className="signup-link"
+        to="/signup"> Sign Up</Link>
+    </p>
   </div>
     </form>
+      </div>   
     </div>
    
   )

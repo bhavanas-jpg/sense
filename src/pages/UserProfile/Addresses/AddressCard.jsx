@@ -1,16 +1,22 @@
 import React from 'react'
 import { useAddress } from '../../../context/AddressContext'
-import {useAddressUpdater} from '../../../Hooks/useAddressUpdater'
+
 import {removeAddress} from '../../../services/address-services/removeAddress'
+import { useNavigate } from 'react-router-dom'
 
 const AddressCard = ({address}) => {
-    console.log(address)
-    const {setAddressState} = useAddress();
-    const [removeAddressServerCall] = useAddressUpdater(
-        removeAddress,
-        address,
-        "Address has been deleted"
-    )
+    
+    const {setAddressState, addressState, removeAddressCard} = useAddress();
+    // const [removeAddressServerCall] = useAddressUpdater(
+    //     removeAddress,
+    //     address,
+    //     "Address has been deleted"
+    // );
+
+    // console.log(removeAddressServerCall() , "addresscall");
+
+  const navigate = useNavigate();
+    
   return (
     <div>
      <p><b>{address.name}</b></p>
@@ -20,15 +26,18 @@ const AddressCard = ({address}) => {
      <p>Phone Number: {address.phone}</p>
 
      <button 
-     onClick={()=> setAddressState(
-      {
-        addNewAddress : true,
-        currAddress : { ...address}
-      }
-     )}
+     onClick={()=>{
+      setAddressState(
+        {
+          addNewAddress : true,
+          currAddress : { ...address}
+        })
+      navigate ("/profile/addresses/addressForm")
+     }
+     }
      >Edit</button>
      <button
-     onClick = {()=> removeAddressServerCall()}
+     onClick = {()=> removeAddressCard(address)}
      >Delete</button>
 
 

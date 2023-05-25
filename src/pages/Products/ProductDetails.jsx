@@ -58,9 +58,6 @@ const addToWishlistServerCall =async()=>{
   }
 }
 
-
-
-
 useEffect(() => {
   cartProducts.find((item) => item._id === product._id) && setInCart(true);
   wishlistProducts.find((item) => item._id === product._id) &&
@@ -69,13 +66,18 @@ useEffect(() => {
 
 
   return (
-    <div className="container product-details">
-        <h1>ProductDetails</h1>
+    <section className="container product-details">
+        
+        <div className="product-image-sec">
+        <img
+        className="product-image"
+         src={product?.img} alt="product-image" />
+        </div>
+        <div className="product-details-sec">
         <p>{product?.name}</p>
         <p>{product?.description}</p>
         <p>{product?.price}</p>
         <p>{product?.ratings}</p>
-        
         <div>
             <button onClick={
               auth.isAuth ? inCart ?
@@ -96,9 +98,11 @@ useEffect(() => {
                 
             </button>
         </div>
+        </div>     
         
         
-        </div>
+        
+        </section>
 
   )
 }

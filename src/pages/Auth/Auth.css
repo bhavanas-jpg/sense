@@ -1,0 +1,50 @@
+.login .login-container,
+.signup-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.login-form,
+.signup-form{
+    width: 550px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+   padding: 1rem 0;
+}
+.login-form h2,
+.signup-form h2
+{
+    margin: 1rem 0;
+}
+.login-form p{
+    margin-bottom: 1.2rem;
+}
+.login-form input,
+.signup-form input{
+    width: 300px;
+    padding: 15px 20px;
+    margin-bottom: 1.2rem;
+    outline: none;
+}
+.login-form button,
+.signup-form button{
+    width: 300px;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    padding: 9px 0;
+    cursor: pointer; 
+}
+.login-btn,
+.signup-btn{
+    background: #000;
+    color: #fff;
+}
+.signup-link,
+.login-link{
+    color: #9a9797;
+    text-decoration: none;
+}
+
+/**sign up css**/

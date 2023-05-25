@@ -2,20 +2,25 @@ import React from 'react'
 import { useAddress } from '../../../context/AddressContext'
 import {useData} from '../../../context/DataContext'
 import AddressCard from './AddressCard';
+import { useNavigate } from 'react-router-dom';
 
 const Addresses = () => {
   const {setAddressState} = useAddress();
   const {state} = useData();
   const { addressList} = state;
+  const navigate = useNavigate();
 
-console.log(addressList)
+  const addressForm = () =>{
+    setAddressState((prev) => ({...prev, addNewAddress : true}));
+    navigate ("/profile/addresses/addressForm")
+  }
+
+ console.log(addressList , "other addresses")
   return (
     <div>
       <h3>My Addresses</h3>
       <button
-      onClick={()=>
-        setAddressState((prev) => ({...prev, addNewAddress : true}))
-      }
+      onClick={addressForm  }
       >Add new address +</button>
 
       <ul>

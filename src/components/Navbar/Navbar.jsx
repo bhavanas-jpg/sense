@@ -4,8 +4,10 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/home_page_images/logo.png";
 import "../Navbar/Navbar.css"
 import { useData } from "../../context/DataContext";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const {auth} = useAuth();
   const {state} = useData();
   const {cartProducts, wishlistProducts} = state;
   return (
@@ -38,15 +40,22 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="list-items">
-                {" "}
-                <NavLink to="/login">
+               
+                {auth.isAuth ? (
+                    <NavLink to="/profile">
+                    <i class=" fa fa-thin fa-user"></i>
+                  </NavLink>
+                ): (
+                  <NavLink to="/login">
                   <i class=" fa fa-thin fa-user"></i>
                 </NavLink>
+                ) }
+                
               </li>
 
-              <li>
+              {/* <li>
                 <NavLink to="/logout">Logout</NavLink>
-              </li>
+              </li> */}
             </ul>
           </div>
         </nav>

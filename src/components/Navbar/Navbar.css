@@ -1,7 +1,7 @@
-.container {
+/* .container {
     max-width: 400px;
     margin: 0 auto;
-}
+} */
 .navbar {
     padding: 2rem 0;
     display: flex;
@@ -27,10 +27,10 @@
 }
 /**media query for tablet**/
 @media(min-width: 768px){
-    .container {
+    /* .container {
         max-width: 700px;
         margin: 0 auto;
-    }
+    } */
     .search-input input {
         width: 140%;
         border: none;
@@ -41,10 +41,10 @@
 }
 /**media query  for desktop**/
 @media(min-width: 1024px){
-    .container {
+    /* .container {
         max-width: 1014px;
         margin: 0 auto;
-    }
+    } */
     .list-items {
         padding: 0 20px;
     }

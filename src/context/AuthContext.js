@@ -10,7 +10,7 @@ export const AuthProvider=({children})=>{
   return {token:"", isAuth: false}
  }) 
 
- console.log(auth , "context auth");
+
   return(
     <AuthContext.Provider value={{auth, setAuth}}>
       {children}

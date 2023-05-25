@@ -65,11 +65,13 @@ export const dataReducer =(state, action)=>{
             ...state,
             wishlistProducts: [...action.payload.wishlist]
         }
-        case actionTypes.SET_ADDRESSLIST :
-        return{
+        case actionTypes.RESET:
+			return {
                 ...state,
-                addressList: [...action.payload.addressList]
-        }
+				cartProducts: [],
+				wishlistProducts: []
+            }
+        
             default:
                 return state;
     }
