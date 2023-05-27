@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import {  sortBy } from "../reducer/actionTypes";
+
 
 const getCategoryData = (...arr)=>{
     const categoryData = arr.reduce((acc,curr)=>{    
@@ -42,4 +44,14 @@ const categoryFilter =(data,categories)=>{
   return data.filter((ele)=> Number(ele.price) <= maxValue)
  }
 
- export {sortByPrice,ratingFilter,priceRangeFilter, categoryFilter}
+ const searchFilter = (data, searchValue) =>{
+    if(searchValue?.length > 0  ){
+  return data.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()));
+    }else{
+     return   data
+    }
+  
+ }
+
+
+ export {sortByPrice,ratingFilter,priceRangeFilter, categoryFilter, searchFilter}

@@ -1,15 +1,20 @@
 import React from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/home_page_images/logo.png";
 import "../Navbar/Navbar.css"
 import { useData } from "../../context/DataContext";
 import { useAuth } from "../../context/AuthContext";
+import { actionTypes, filters } from "../../reducer/actionTypes";
 
 const Navbar = () => {
   const {auth} = useAuth();
-  const {state} = useData();
+  const {state, dispatch} = useData();
   const {cartProducts, wishlistProducts} = state;
+  const navigate = useNavigate()
+  // console.log(state.filters);
+
+  
   return (
     <>
       <header className="container">
@@ -20,7 +25,21 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="search-input">
-            <input type="text" placeholder="search here" />
+            <input type="text" 
+            placeholder="search here" 
+            onChange ={(e)=> {
+              dispatch({
+                type: actionTypes.CHANGE_FILTER,
+                payload: {
+                  filterType: filters.SEARCH,
+                  filterValue : e.target.value
+                }
+              }) 
+              navigate("/products") 
+            }
+                              
+            }
+            />
           </div>
           <div >
             <ul className="list">
