@@ -74,12 +74,16 @@ useEffect(() => {
          src={product?.img} alt="product-image" />
         </div>
         <div className="product-details-sec">
-        <p>{product?.name}</p>
-        <p>{product?.description}</p>
-        <p>{product?.price}</p>
-        <p>{product?.ratings}</p>
-        <div>
-            <button onClick={
+        <h2 className="product-heading">{product?.name}</h2>
+        <p className="product-description">{product?.description}</p>
+
+        <span className="product-price">${product?.price}</span>
+        <span className="product-rating">{product?.ratings}
+        <i class=" rating-star fa fa-thin fa-star"></i></span>
+        <div className="product-btns">
+            <button 
+            className="primary-btn"
+            onClick={
               auth.isAuth ? inCart ?
                             ()=> navigate("/cart") : ()=>addToCartServerCall()
                           : ()=> navigate("/login")
@@ -87,6 +91,7 @@ useEffect(() => {
               <span>{inCart ? "Go to Cart" : "Add to Cart"}</span>  
             </button>
             <button 
+             className="secondary-btn"
              onClick={
               auth.isAuth ?  inWishlist ?
                             () => navigate("/wishlist") : ()=>addToWishlistServerCall()

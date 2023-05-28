@@ -23,12 +23,7 @@ import {
   removeItemFromWishlistHandler,
 } from "./backend/controllers/WishlistController";
 
-import {
-	getAllAddressesHandler,
-	addNewAddressHandler,
-	removeAddressHandler,
-	editAddressHandler,
-} from "./backend/controllers/AddressController";
+
 
 import { categories } from "./backend/db/categories";
 import { products } from "./backend/db/products";
@@ -60,21 +55,7 @@ export function makeServer({ environment = "development" } = {}) {
       users.forEach((item) =>
         server.create("user", { ...item,
            cart: [], 
-           wishlist: [],
-           addressList : [
-            {
-              _id: uuid(),
-              name: "Bhavana S",
-              street: "#78, Haliyala Basaveshwara Nilaya",
-              city: "Bangalore",
-              state: "Karnataka",
-              country: "India",
-              pincode: "520136",
-              phone: "123456789"
-            }
-           ],
-           orders: []
-          
+           wishlist: [],        
           })
       );
 
@@ -112,11 +93,7 @@ export function makeServer({ environment = "development" } = {}) {
         removeItemFromWishlistHandler.bind(this)
       );
 
-      // address routes (private)
-      this.get("/user/address", getAllAddressesHandler.bind(this));
-      this.post("/user/address", addNewAddressHandler .bind(this));
-      this.post("/user/address/:addressId", editAddressHandler.bind(this));
-      this.delete("/user/address/:addressId", removeAddressHandler.bind(this));
+     
     },
   });
 }

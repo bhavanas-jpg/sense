@@ -1,21 +1,19 @@
 import React from 'react'
 import { useAddress } from '../../../context/AddressContext'
 
-import {removeAddress} from '../../../services/address-services/removeAddress'
 import { useNavigate } from 'react-router-dom'
 
 const AddressCard = ({address}) => {
     
-    const {setAddressState, addressState, removeAddressCard} = useAddress();
-    // const [removeAddressServerCall] = useAddressUpdater(
-    //     removeAddress,
-    //     address,
-    //     "Address has been deleted"
-    // );
-
-    // console.log(removeAddressServerCall() , "addresscall");
-
+    const {setAddressState, addressState, formValues, setFormValues,
+      addressDispatch
+    
+    } = useAddress();
+  
   const navigate = useNavigate();
+  console.log(address  ,"address card");
+  console.log(formValues ,"address card");
+  console.log(address.id);
     
   return (
     <div>
@@ -26,18 +24,25 @@ const AddressCard = ({address}) => {
      <p>Phone Number: {address.phone}</p>
 
      <button 
-     onClick={()=>{
-      setAddressState(
-        {
-          addNewAddress : true,
-          currAddress : { ...address}
-        })
-      navigate ("/profile/addresses/addressForm")
+     onClick={(e)=>{
+      e.preventDefault();
+      setAddressState((prev) => ({...prev, addNewAddress : true}));
+      navigate ("/profile/addresses/addressForm");
+      setFormValues((prev)=>({...prev, ...address}))
+      addressDispatch({
+        type: "EDIT_ADDRESS",
+        payload: address.id
+      })
      }
      }
      >Edit</button>
      <button
-     onClick = {()=> removeAddressCard(address)}
+    onClick={(e) =>{
+      addressDispatch({
+        type: "DELETE_ADDRESS",
+        payload: address.id
+      })
+    }}
      >Delete</button>
 
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAddress } from '../../../context/AddressContext'
 
-import {addAddress} from "../../../services/address-services/addAddress"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -12,13 +11,11 @@ const AddressForm = () => {
         setAddressState
     } = useAddress();
   const navigate = useNavigate();
-    console.log(addNewAddress);
 
-    const [formValues, setFormValues] = useState();
 
-    useEffect(()=>{
-        setFormValues(currAddress);
-    }, [currAddress]);
+    const {formValues, setFormValues,addressDispatch} = useAddress();
+
+  
 
   const changeHandler = (e) =>{
     const {name , value} = e.target;
@@ -35,12 +32,6 @@ const AddressForm = () => {
     phone: "9090907889"
   };
  
- 
-
-
-
-
-
   const resetForm =() =>{
     setAddressState((prev) =>({
         ...prev,
@@ -60,8 +51,7 @@ const AddressForm = () => {
 
   const submitHandler = (e)=>{
     e.preventDefault();
-    // currAddress?._id ? updateAddressServerCall() :
-    // addAddressServerCall();
+    
     resetForm();
     navigate("/profile/addresses")
   }
@@ -135,7 +125,19 @@ const AddressForm = () => {
         required
         />
          <div>
-         <button type="submit">Save</button>
+
+         <button type="submit"
+         onClick= {(e)=>{
+          e.preventDefault();
+          addressDispatch({
+            type: 'ADD_ADDRESS',
+            payload: formValues
+          })
+          navigate("/profile/addresses");
+          resetForm();
+         }}
+         >Save</button>
+
         <button
         onClick={(e)=>{
             e.preventDefault();

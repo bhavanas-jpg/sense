@@ -16,6 +16,7 @@ import Profile from "./pages/UserProfile/Profile/Profile";
 import Orders from "./pages/UserProfile/Orders/Orders";
 import Addresses from "./pages/UserProfile/Addresses/Addresses";
 import AddressForm from "./pages/UserProfile/Addresses/AddressForm";
+import Checkout from "./pages/Checkout/Checkout";
 
 
 function App() {
@@ -50,10 +51,12 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/products" element={<Products />} />
         <Route path="/:productId" element={<ProductDetails />}/>
+        <Route path="/checkout" element={<Checkout />}/>
         <Route path="/mockman" element={<MockAPI />} />
-        <Route path="/logout" element={<Logout />} />
+        
       </Routes>
     </div>
   );

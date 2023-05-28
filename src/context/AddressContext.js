@@ -1,13 +1,9 @@
-import { createContext, useContext, useState } from "react";
-import { removeAddress } from "../services/address-services/removeAddress";
-import { useAuth } from "./AuthContext";
+import { createContext, useContext, useReducer, useState } from "react";
+import { addressListReducer, initialAddressState } from "../reducer/AddressReducer";
 
 export const AddressContext = createContext(null);
 
 export const AddressProvider = ({children}) =>{
-    const {
-        auth: {token}
-    } = useAuth();
  const [addressState, setAddressState] = useState({
     addNewAddress : false,
     currAddress :{
@@ -20,19 +16,16 @@ export const AddressProvider = ({children}) =>{
         phone: ""
     }
  })
+ const [formValues, setFormValues] = useState();
 
- const removeAddressCard = async (address) =>{
-    try{
-        const res = await removeAddress(address, token);
-        console.log(res)
 
-    }catch(e){
-        console.error(e)
-    }
- }
+ const [addressListState, addressDispatch] = useReducer(addressListReducer, initialAddressState)
+
 
 return(
-<AddressContext.Provider value={{addressState, setAddressState, removeAddressCard}}>
+<AddressContext.Provider value={{addressState, setAddressState ,
+    addressListState, addressDispatch,
+    formValues, setFormValues}}>
     {children}
     </AddressContext.Provider>
 )    

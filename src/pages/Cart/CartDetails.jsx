@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CartDetails = ({ products }) => {
+  const navigate = useNavigate();
 
   const productPrice=(price, qty) => Number(price) * qty;
   const totalPrice = products.reduce(
@@ -21,7 +23,9 @@ const CartDetails = ({ products }) => {
         ))
       }     
       <p>total price: {totalPrice}</p>
-      <button>checkout</button>
+      <button 
+      onClick={()=> navigate("/checkout")}
+      >checkout</button>
     </div>
   );
 };

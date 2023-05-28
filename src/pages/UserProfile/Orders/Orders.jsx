@@ -2,7 +2,10 @@ import React from 'react'
 
 const Orders = () => {
   return (
-    <div>Orders</div>
+    <div>
+
+      <p>No orders placed</p>
+    </div>
   )
 }
 

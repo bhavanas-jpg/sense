@@ -3,7 +3,6 @@ export const actionTypes ={
     CLEAR_FILTER: 'CLEAR_FILTER',
     SET_CART : 'SET_CART',
     SET_WISHLIST : 'SET_WISHLIST ',
-    SET_ADDRESSLIST: 'SET_ADDRESSLIST',
     SET_ORDERS: 'SET_ORDERS',
     RESET : 'RESET'
 }

@@ -10,8 +10,7 @@ export const inititalState={
     },
     productsData: [],
     cartProducts: [],
-    wishlistProducts: [],
-    addressList : []
+    wishlistProducts: []
 }
 
 
