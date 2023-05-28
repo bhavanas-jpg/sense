@@ -18,8 +18,8 @@ const Cart = () => {
 
   return (
     <div className="container" style={{height: "100vh"}}>
-    <h1>Cart</h1>
-    <p>my cart has {cartProducts.length} items</p>
+    <h1>Your Cart</h1>
+    {/* <p>your cart has {cartProducts.length} items</p> */}
     <>
     {
       cartProducts.map((item)=>(  

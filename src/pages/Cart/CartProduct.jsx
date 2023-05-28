@@ -4,6 +4,7 @@ import { actionTypes } from "../../reducer/actionTypes";
 import { removeFromCart } from "../../services/cart-services/removeFromCart";
 import { cartCounterService } from "../../services/cart-services/cartCounterService";
 import { useData } from "../../context/DataContext";
+import "./Cart.css"
 
 const CartProduct = ({ product }) => {
   const { dispatch } = useData();
@@ -33,15 +34,41 @@ const CartProduct = ({ product }) => {
   };
 
   return (
-    <div>
-      <p>{product.name}</p>
-      <p>{product.price * product.qty}</p>
-      <button onClick={() => cartCounterServerCall("increment")}>+</button>
-      <span>{product.qty}</span>
-      <button onClick={() => cartCounterServerCall("decrement")}>-</button>
-      <button onClick={() => cartCounterServerCall("remove")}>remove</button>
-      <button>Add to wishlist</button>
+   
+      <div className="cart-product-card ">
+      <div className="cart-product">
+        <div className="cart-product-image">
+        <img src={product.img} alt="" />
+        </div>    
+
+        <div >
+          <div>
+          <p className="cart-product-name">{product.name}</p>
+        <p>${product.price }</p>
+          </div> 
+          <button>Add to wishlist</button>
+      </div>
+      </div>
+  {/***product-quantity */}
+      <div className="product-quantity">
+        <span className="product-quantity--btn">
+        <button onClick={() => cartCounterServerCall("increment")}>+</button>
+    <span>{product.qty}</span>
+    <button onClick={() => cartCounterServerCall("decrement")}>-</button>
+        </span>
+    <button onClick={() => cartCounterServerCall("remove")}>remove</button>
+    
     </div>
+   
+       
+      <div className="product-total">
+        <p>Total</p>
+        <p>${product.price * product.qty}</p>
+      </div>
+      
+    </div>
+ 
+
   );
 };
 
