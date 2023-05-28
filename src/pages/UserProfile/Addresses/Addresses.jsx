@@ -27,7 +27,7 @@ const Addresses = () => {
 
       <ul>
         {addressList.map((address)=>(       
-          <AddressCard key={address._id} address={address}/>
+          <AddressCard key={address.id} address={address}/>
         ))}
       </ul>
     

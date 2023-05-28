@@ -4,6 +4,7 @@ import { addressListReducer, initialAddressState } from "../reducer/AddressReduc
 export const AddressContext = createContext(null);
 
 export const AddressProvider = ({children}) =>{
+    {/**to open address form and set form values */}
  const [addressState, setAddressState] = useState({
     addNewAddress : false,
     currAddress :{

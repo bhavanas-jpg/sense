@@ -1,8 +1,8 @@
-let uniqueId = new Date().getTime().toString(36) + new Date().getUTCMilliseconds();
- 
+
 export const initialAddressState = {
+
     addressList : [{
-        id: uniqueId,
+        id: new Date().getTime().toString(36) + new Date().getUTCMilliseconds(),
         name: "Bhavana",
         street : "#78, A block, Rathnagiri Nagar",
         city : "Shimoga",
@@ -18,41 +18,35 @@ export const addressListReducer = (state,action)=>{
    switch(action.type){
     case "ADD_ADDRESS": 
     if(state.editIndex !== null && state.addressList){
-        console.log(state.editIndex  , "editIndex value");
         const editedAddress = state.addressList.map((item)=> item.id === state.editIndex
-        ? {id: item.id , ...action.payload}
-        : item
-        )
-        console.log(editedAddress);
+        ?  action.payload : item)
+
         return {
             ...state,
-            addressList : [...state.addressList, ...editedAddress],
+            addressList : editedAddress,
             editIndex: null
         }
     }
-
-    return {
-        ...state,
-        addressList: [...state.addressList, {id: uniqueId,  ...action.payload}]
-    }
-    
-    case "EDIT_ADDRESS":
-        const editedAddress = state.addressList.find(({id})=> id === action.payload);
         return {
             ...state,
-            addressList : [ ...state.addressList ,editedAddress],
+            addressList : [...state.addressList, {id: new Date().getTime().toString(36) + new Date().getUTCMilliseconds(), ...(action.payload)}],
+            
+        }
+
+    case "EDIT_ADDRESS":
+        return {
+            ...state,
             editIndex: action.payload
         }
+
     case "DELETE_ADDRESS":
-        console.log(action.payload , "delete sec");
-        const deletedNote = state.addressList.filter(({id}) => id !== action.payload)
-        console.log(deletedNote);
+        const deletedAddress = state.addressList.filter(({id}) => id !== action.payload)    
         return {
             ...state,
-            addressList : [...deletedNote]
+            addressList : [...deletedAddress]
         }
 
     default:
-        return null;
+        return state;
    }
 }

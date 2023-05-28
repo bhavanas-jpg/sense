@@ -17,9 +17,7 @@ const UserProfile = () => {
           <li>
             <Link to="/profile">Profile</Link>
           </li>
-          <li>
-            <Link to="/profile/orders">Orders</Link>
-          </li>
+         
           <li>
             <Link to="/profile/addresses">Addresses</Link>
           </li>
