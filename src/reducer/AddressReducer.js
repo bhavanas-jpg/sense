@@ -11,6 +11,7 @@ export const initialAddressState = {
         pincode: "512345",
         phone: "1234567890"
     }],
+    selectedAddress: {},
     editIndex: null
 }
 
@@ -45,6 +46,13 @@ export const addressListReducer = (state,action)=>{
             ...state,
             addressList : [...deletedAddress]
         }
+    case "SELECTED_ADDRESS":
+        const selectedAddress = state.addressList.find(({id})=> id === action.payload);
+        return{
+            ...state,
+            selectedAddress
+        }
+
 
     default:
         return state;

@@ -18,6 +18,7 @@ export const AddressProvider = ({children}) =>{
     }
  })
  const [formValues, setFormValues] = useState();
+ const [checkoutAddress, setCheckoutAddress] = useState();
 
 
  const [addressListState, addressDispatch] = useReducer(addressListReducer, initialAddressState)
@@ -26,7 +27,8 @@ export const AddressProvider = ({children}) =>{
 return(
 <AddressContext.Provider value={{addressState, setAddressState ,
     addressListState, addressDispatch,
-    formValues, setFormValues}}>
+    formValues, setFormValues,
+    checkoutAddress, setCheckoutAddress}}>
     {children}
     </AddressContext.Provider>
 )    

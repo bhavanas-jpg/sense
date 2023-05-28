@@ -15,7 +15,7 @@ const Products = () => {
         <Filters />
         <div className='product-card-container'>
           {
-            filteredData.map(product => (
+            filteredData.length === 0 ? <p>No Item found</p> : filteredData.map(product => (
               <ProductCard  key = {product._id} product={product} />
             ))
           }

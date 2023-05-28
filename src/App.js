@@ -13,7 +13,6 @@ import Logout from "./pages/Auth/Logout/Logout";
 import ProductDetails from "./pages/Products/ProductDetails";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import Profile from "./pages/UserProfile/Profile/Profile";
-import Orders from "./pages/UserProfile/Orders/Orders";
 import Addresses from "./pages/UserProfile/Addresses/Addresses";
 import AddressForm from "./pages/UserProfile/Addresses/AddressForm";
 import Checkout from "./pages/Checkout/Checkout";
@@ -43,7 +42,6 @@ function App() {
         />
        <Route path="/profile" element={<UserProfile />}>
         <Route path="/profile" element={<Profile />}/>
-        <Route path="/profile/orders" element={<Orders />}/>
         <Route path="/profile/addresses" element={<Addresses />}/>
         <Route path="/profile/addresses/addressForm" element={<AddressForm />}/>
        </Route>

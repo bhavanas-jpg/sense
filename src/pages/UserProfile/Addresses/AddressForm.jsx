@@ -13,7 +13,7 @@ const AddressForm = () => {
   const navigate = useNavigate();
 
 
-    const {formValues, setFormValues,addressDispatch} = useAddress();
+    const {formValues, setFormValues,addressDispatch, checkoutAddress} = useAddress();
 
   
 
@@ -133,8 +133,8 @@ const AddressForm = () => {
             type: 'ADD_ADDRESS',
             payload: formValues
           })
-          navigate("/profile/addresses");
           resetForm();
+          checkoutAddress ? navigate("/checkout") : navigate("/profile/addresses")
          }}
          >Save</button>
 

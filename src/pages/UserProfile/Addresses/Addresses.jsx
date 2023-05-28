@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Addresses = () => {
   const {setAddressState, addressListState, addressState :{currAddress},  setFormValues} = useAddress();
   const {addressList} = addressListState;
-  const {state} = useData();
+
   const navigate = useNavigate();
 
   const addressForm = () =>{
@@ -16,7 +16,6 @@ const Addresses = () => {
     navigate ("/profile/addresses/addressForm")
   }
 
-  console.log(addressList, "on save");
 
   return (
     <div>
