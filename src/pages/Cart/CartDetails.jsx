@@ -11,8 +11,17 @@ const CartDetails = ({ products }) => {
   );
   
   return (
-    <div>
-      <h3>cart price details:</h3>
+    <div className="container cart-detail">
+      <div className="empty-div"></div>
+      <div className="total-price-container">
+      <p>SubTotal  :
+         ${totalPrice}</p>
+      <button 
+      className="checkout-btn"
+      onClick={()=> navigate("/checkout")}
+      >checkout</button>
+      </div>
+      {/* <h3>cart price details:</h3>
       {
         products.map((product)=>(
             <div key={product._id}>
@@ -21,11 +30,8 @@ const CartDetails = ({ products }) => {
           </p>
           </div>
         ))
-      }     
-      <p>total price: {totalPrice}</p>
-      <button 
-      onClick={()=> navigate("/checkout")}
-      >checkout</button>
+      }      */}
+      
     </div>
   );
 };

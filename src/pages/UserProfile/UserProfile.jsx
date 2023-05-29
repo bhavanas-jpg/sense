@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from "react";
 import {Link, Outlet} from "react-router-dom";
+import "./UserProfile.css"
 
 const UserProfile = () => {
   const [currPage, setCurrPage] = useState("Profile");
@@ -8,18 +9,18 @@ const UserProfile = () => {
 
 
   return (
-    <div className="container"
-    style={{height:"100vh"}}
-    >
-      <h1>My Profile</h1>
-      <div >
-        <ul style={{display:"flex", justifyContent:"space-between"}}>
+    <div className="container hg-100" >    
+      <div className='user-profile'>
+        <ul className="user-profile--links">
           <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-         
+            <Link 
+            className="user-profile--link"
+            to="/profile">Profile</Link>
+          </li>      
           <li>
-            <Link to="/profile/addresses">Addresses</Link>
+            <Link 
+            className="user-profile--link"
+            to="/profile/addresses">Addresses</Link>
           </li>
         </ul>
       </div>

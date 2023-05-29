@@ -11,6 +11,7 @@
     border-radius: 5px;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background: rgba(220, 243, 185, 0.3);
    padding: 1rem 0;
 }
 .login-form h2,
@@ -43,7 +44,7 @@
 }
 .signup-link,
 .login-link{
-    color: #9a9797;
+    color: #151414;
     text-decoration: none;
 }
 

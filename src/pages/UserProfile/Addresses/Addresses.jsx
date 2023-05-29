@@ -18,13 +18,14 @@ const Addresses = () => {
 
 
   return (
-    <div>
-      <h3>My Addresses</h3>
+    <div  className="user-profile">
+      
       <button
       onClick={addressForm  }
       >Add new address +</button>
 
       <ul>
+      <h3>My Addresses</h3>
         {addressList.map((address)=>(       
           <AddressCard key={address.id} address={address}/>
         ))}

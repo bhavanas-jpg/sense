@@ -99,8 +99,7 @@ useEffect(() => {
 
              }
             >
-            <span>{inWishlist ? "Go to Wishlist" : "Add to WishList"}</span>  
-                
+            <span>{inWishlist ? "Go to Wishlist" : "Add to WishList"}</span>                
             </button>
         </div>
         </div>     

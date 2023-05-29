@@ -1,0 +1,20 @@
+.user-profile{
+    width: 45rem;
+    margin: 0 auto;
+    border-bottom: 1px solid #000;
+
+    
+    padding: 1rem;
+    /* border-radius: 5px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background: rgba(255,255,255,0.6);
+}
+.user-profile--links{
+display: flex;
+justify-content: space-around;
+}
+.user-profile--link{
+    text-decoration: none;
+    color: #000;
+
+}

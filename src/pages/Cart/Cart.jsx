@@ -11,14 +11,9 @@ const Cart = () => {
   const {state} = useData();
   const {cartProducts} = state;
 
- 
-
-
-
-
   return (
-    <div className="container" style={{height: "100vh"}}>
-    <h1>Your Cart</h1>
+    <div className="container hg-100" >
+    <h1 className="heading">Your Cart</h1>
     {/* <p>your cart has {cartProducts.length} items</p> */}
     <>
     {

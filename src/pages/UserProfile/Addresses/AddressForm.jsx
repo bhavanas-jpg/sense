@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAddress } from '../../../context/AddressContext'
-
+import "./Address.css"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -58,8 +58,8 @@ const AddressForm = () => {
 
   return (
     addNewAddress && (
-    <div>
-        <h4>AddressForm</h4>
+    <div  className="user-profile address-form">
+        
         <div >
         <form
         onSubmit ={submitHandler}
@@ -81,7 +81,9 @@ const AddressForm = () => {
         onChange={changeHandler}
         required   
         />
+        <div className="d-flex">
         <input
+        className="flex-wd--50"
         type="text"
         placeholder='Enter city'
         name="city"
@@ -90,6 +92,7 @@ const AddressForm = () => {
         required
         />
         <input
+        className="flex-wd--50 ml-1" 
         type="text"
         placeholder="Enter state"
         name="state"
@@ -97,26 +100,31 @@ const AddressForm = () => {
         onChange={changeHandler}
         required    
         />
+        </div>
+        <div className="d-flex ">
         <input
-        type="number"
+        className="flex-wd--50"
+        type="text"
         placeholder='Enter pincode'
         name="pincode"
         value = {formValues?.pincode}
         onChange ={changeHandler}
         required
         />
-        <select 
+        <input
+          className="flex-wd--50 ml-1" 
+        type="text"
+        placeholder="Enter country"
         name="country"
         value={formValues?.country}
         onChange={changeHandler}
         required
-        >
-            <option value="India">India</option>
-            <option value="China">China</option>
-            <option value="Japan">Japan</option>
-            <option value="Australia">Australia</option>
-        </select>
-        <input type="number"
+        />
+        </div>
+     
+           
+      
+        <input type="text"
         placeholder="Enter phone number"
         name="phone"
         value={formValues?.phone}
@@ -126,7 +134,9 @@ const AddressForm = () => {
         />
          <div>
 
-         <button type="submit"
+         <button 
+         className="save-btn address-form-btn"
+         type="submit"
          onClick= {(e)=>{
           e.preventDefault();
           addressDispatch({
@@ -139,12 +149,14 @@ const AddressForm = () => {
          >Save</button>
 
         <button
+        className="cancel-btn address-form-btn ml-1"
         onClick={(e)=>{
             e.preventDefault();
             resetForm();
         }}
         >Cancel</button>
         <button
+        className='address-form-btn dummy-btn ml-1'
         onClick={(e)=>{
             e.preventDefault();
             setFormValues((prev)=>({...prev, ...dummyData}))

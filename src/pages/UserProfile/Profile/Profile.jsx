@@ -27,13 +27,14 @@ const Profile = () => {
   };
 
   return (
-    <div>
-      <h4> Profile Details</h4>
+    <div className="user-profile">
       <p>
         Full Name: {auth?.firstName} {auth?.lastName}
       </p>
       <p> Email : {auth?.userEmail}</p>
       <button onClick={ProfileLogoutHandler}>Log out</button>
+      
+      
     </div>
   );
 };

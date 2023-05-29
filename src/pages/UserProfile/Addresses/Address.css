@@ -1,0 +1,37 @@
+.address-form input{
+    border:1px solid #646262;
+    outline:none;
+    padding: 10px;
+    margin-bottom: 1rem;
+    background: transparent;
+    border-radius: 5px;
+}
+/* .address-form input:selected{
+    background: transparent !important; 
+} */
+.address-form-btn{
+    border:none;
+    outline:none;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.save-btn{
+    background-color: rgb(188, 235, 188);
+    
+}
+.cancel-btn{
+    background-color: rgb(252, 116, 116);
+
+}
+.dummy-btn{
+    background-color: #9ccdf5;
+}
+
+.ml-1{
+    margin-left: 1rem;
+}
+
+.flex-wd--50{
+    flex: 50%
+}

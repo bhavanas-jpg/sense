@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 const CheckoutAddress = () => {
     const {addressListState,setAddressState,addressState :{currAddress},  
-    setFormValues, checkoutAddress, setCheckoutAddress,addressDispatch} = useAddress();
-    const {addressList} = addressListState;
+    setFormValues, checkoutAddress, setCheckoutAddress,addressDispatch, checkAddress} = useAddress();
+    const {addressList, checkedAddress} = addressListState;
     const navigate = useNavigate();
+
+ 
     
 
     const addressForm = () =>{
@@ -24,13 +26,13 @@ const CheckoutAddress = () => {
       >Add new address +</button>
       <div>
         {addressList.map((address)=>(
-            <div>
+            <div key={address.id}>
             
                 <p>
                 <input
                  type="radio" 
                  name="selected-address"
-                 checked="true"
+                 checked={checkedAddress}
                  onChange={()=> 
                     addressDispatch({
                         type: "SELECTED_ADDRESS",
