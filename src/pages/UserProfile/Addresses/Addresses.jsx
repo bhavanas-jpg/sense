@@ -1,39 +1,40 @@
-import React from 'react'
-import { useAddress } from '../../../context/AddressContext'
-import {useData} from '../../../context/DataContext'
-import AddressCard from './AddressCard';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useAddress } from "../../../context/AddressContext";
+import AddressCard from "./AddressCard";
+import AddressForm from "./AddressForm";
+import "./Address.css"
+
 
 const Addresses = () => {
-  const {setAddressState, addressListState, addressState :{currAddress},  setFormValues} = useAddress();
-  const {addressList} = addressListState;
+  const {
+    setAddressState,
+    addressState,
+    addressListState,
+    addressState: { currAddress },
+    setFormValues,
+  } = useAddress();
+  const { addressList } = addressListState;
+  const { addNewAddress } = addressState;
 
-  const navigate = useNavigate();
-
-  const addressForm = () =>{
-    setAddressState((prev) => ({...prev, addNewAddress : true}));
+  const addressForm = () => {
+    setAddressState((prev) => ({ ...prev, addNewAddress: true }));
     setFormValues(currAddress);
-    navigate ("/profile/addresses/addressForm")
-  }
-
+  };
 
   return (
-    <div  className="user-profile">
-      
-      <button
-      onClick={addressForm  }
-      >Add new address +</button>
-
+    <div className="user-profile addresses">
+      <h3 className="mb-1">My Addresses</h3>
+      <button className=" add-address--btn" onClick={addressForm}>
+        Add New Address  <span  >+</span>
+      </button>
       <ul>
-      <h3>My Addresses</h3>
-        {addressList.map((address)=>(       
-          <AddressCard key={address.id} address={address}/>
+        {addressList.map((address) => (
+          <AddressCard key={address.id} address={address} />
         ))}
       </ul>
-    
-      
-      </div>
-  )
-}
+      <div>{addNewAddress && <AddressForm />}</div>
+    </div>
+  );
+};
 
-export default Addresses
+export default Addresses;

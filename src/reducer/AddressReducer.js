@@ -11,7 +11,17 @@ export const initialAddressState = {
       phone: "1234567890",
     },
   ],
-  selectedAddress: {},
+  selectedId : null,
+  selectedAddress: {
+    id: new Date().getTime().toString(36) + new Date().getUTCMilliseconds(),
+    name: "Bhavana",
+    street: "#78, A block, Rathnagiri Nagar",
+    city: "Shimoga",
+    state: "Karnataka",
+    country: "India",
+    pincode: "512345",
+    phone: "1234567890",
+  },
   editIndex: null,
 };
 
@@ -63,6 +73,7 @@ export const addressListReducer = (state, action) => {
       return {
         ...state,
         selectedAddress,
+        selectedId: action.payload
       };
 
     default:

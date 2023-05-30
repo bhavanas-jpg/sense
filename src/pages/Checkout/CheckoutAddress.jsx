@@ -1,26 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAddress } from '../../context/AddressContext'
 import { useNavigate } from 'react-router-dom';
+import AddressForm from '../UserProfile/Addresses/AddressForm';
 
 const CheckoutAddress = () => {
-    const {addressListState,setAddressState,addressState :{currAddress},  
+    const {addressListState,setAddressState,addressState :{currAddress, addNewAddress},  
     setFormValues, checkoutAddress, setCheckoutAddress,addressDispatch, checkAddress} = useAddress();
-    const {addressList, checkedAddress} = addressListState;
+    const {addressList, selectedId,  selectedAddress} = addressListState;
     const navigate = useNavigate();
 
- 
+
     
 
     const addressForm = () =>{
         setAddressState((prev) => ({...prev, addNewAddress : true}));
         setFormValues(currAddress);
-        navigate ("/profile/addresses/addressForm");
         setCheckoutAddress(true)
       }
 
   return (
     <div>
-      <h2>CheckoutAddress</h2>  
       <button
        onClick={addressForm  }
       >Add new address +</button>
@@ -32,12 +31,13 @@ const CheckoutAddress = () => {
                 <input
                  type="radio" 
                  name="selected-address"
-                 checked={checkedAddress}
-                 onChange={()=> 
-                    addressDispatch({
-                        type: "SELECTED_ADDRESS",
-                        payload: address.id
-                    })
+                  checked={ selectedAddress.id === address.id }
+                 onChange={
+                  ()=> 
+                  addressDispatch({
+                      type: "SELECTED_ADDRESS",
+                      payload: address.id
+                  })
                  }
                  
                  /><b>{address.name}</b></p>
@@ -47,6 +47,11 @@ const CheckoutAddress = () => {
      <p>Ph No: {address.phone}</p>
             </div>
         ))}
+      </div>
+      <div>
+        {
+         addNewAddress &&   <AddressForm />
+        }    
       </div>
     </div>
   )

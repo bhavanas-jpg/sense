@@ -9,7 +9,6 @@ const Checkout = () => {
 
   return (
     <div className="container hg-100">
-      <h3>checkout</h3>
       <div style={{ display: "flex", gap: "16rem" }}>
         <div>
           <CheckoutAddress />

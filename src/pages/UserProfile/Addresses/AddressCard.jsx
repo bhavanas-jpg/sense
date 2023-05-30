@@ -16,18 +16,20 @@ const AddressCard = ({address}) => {
   console.log(address.id);
     
   return (
-    <div>
-     <p><b>{address.name}</b></p>
+    <div className="address-card mb-1">
+      <div>
+      <p className="address-name"><b>{address.name}</b></p>
      <p>{address.street}</p>
      <p>{address.city}, {address.state}</p>
      <p>{address.country} -{address.pincode}</p>
      <p>Phone Number: {address.phone}</p>
-
-     <button 
+      </div>
+      <div>
+      <button
+      className="edit-btn" 
      onClick={(e)=>{
       e.preventDefault();
       setAddressState((prev) => ({...prev, addNewAddress : true}));
-      navigate ("/profile/addresses/addressForm");
       setFormValues((prev)=>({...prev, ...address}))
       addressDispatch({
         type: "EDIT_ADDRESS",
@@ -35,15 +37,19 @@ const AddressCard = ({address}) => {
       })
      }
      }
-     >Edit</button>
+     ><i class=" fa fa-solid fa-pencil"></i></button>
      <button
+     className="delete-btn"
     onClick={(e) =>{
       addressDispatch({
         type: "DELETE_ADDRESS",
         payload: address.id
       })
     }}
-     >Delete</button>
+     ><i class=" fa fa-solid fa-trash"></i></button>
+      </div>
+   
+     
 
 
     </div>

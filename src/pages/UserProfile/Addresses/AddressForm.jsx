@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAddress } from '../../../context/AddressContext'
 import "./Address.css"
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AddressForm = () => {
 
@@ -11,6 +11,9 @@ const AddressForm = () => {
         setAddressState
     } = useAddress();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(location);
 
 
     const {formValues, setFormValues,addressDispatch, checkoutAddress} = useAddress();
@@ -46,7 +49,6 @@ const AddressForm = () => {
             phone: ""
         }
     }))
-    navigate("/profile/addresses")
   }
 
   const submitHandler = (e)=>{
@@ -58,7 +60,7 @@ const AddressForm = () => {
 
   return (
     addNewAddress && (
-    <div  className="user-profile address-form">
+    <div  className=" address-form">
         
         <div >
         <form
@@ -144,7 +146,7 @@ const AddressForm = () => {
             payload: formValues
           })
           resetForm();
-          checkoutAddress ? navigate("/checkout") : navigate("/profile/addresses")
+          // checkoutAddress ? navigate("/checkout") : navigate("/profile/addresses")
          }}
          >Save</button>
 
@@ -153,6 +155,7 @@ const AddressForm = () => {
         onClick={(e)=>{
             e.preventDefault();
             resetForm();
+            // checkoutAddress ? navigate("/checkout") : navigate("/profile/addresses")
         }}
         >Cancel</button>
         <button
