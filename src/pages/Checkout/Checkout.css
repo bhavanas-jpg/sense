@@ -1,0 +1,37 @@
+.checkout-card{
+  
+    padding: 1rem 1.5rem;
+    flex: 45%;
+    height: 400px;
+}
+.checkout-address-card{
+    flex: 45% ;
+   
+    
+}
+.checkout-addresses{
+    box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
+    border-radius: 8px;
+    padding: 1rem;
+    background: linear-gradient(rgb(221 221 221), rgb(255 255 255) 30%, rgb(203 205 200) 100%);
+    margin-bottom: 1.5rem;
+}
+.checkout-addresses p{
+    margin-bottom: 4px;
+}
+.checkout-card h4{
+    margin-bottom: 0.7rem;
+}
+.purchased-product{
+    width: 200px;
+}
+.checkout-card p{ 
+    margin-bottom: 7px;
+}
+.order-billing {
+    padding: 0.5rem;
+}
+.order-billing p{
+    display: flex;
+    justify-content: space-between;
+}

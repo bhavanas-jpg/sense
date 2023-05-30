@@ -27,7 +27,9 @@ ul li{
 .mb-1{
   margin-bottom: 1rem;
 }
-
+.txt-algn--center{
+  text-align: center;
+}
 .flex-wd--50{
   flex: 50%
 }
@@ -41,6 +43,30 @@ ul li{
   justify-content: space-between;
   align-items: center;
 }
+
+/**reusable styles **/
+.add-address--btn{
+  padding: 8px 15px;
+  border: none;
+  outline: none;
+  background-color: #24222D;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-bottom: 1.3rem;
+}
+.address-card{
+  box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #edeeee;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
 @media(min-width: 768px){
   .container {
       max-width: 700px;
