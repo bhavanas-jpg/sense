@@ -16,6 +16,7 @@ import Profile from "./pages/UserProfile/Profile/Profile";
 import Addresses from "./pages/UserProfile/Addresses/Addresses";
 import AddressForm from "./pages/UserProfile/Addresses/AddressForm";
 import Checkout from "./pages/Checkout/Checkout";
+import OrderSummary from "./pages/Order/OrderSummary";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/:productId" element={<ProductDetails />}/>
         <Route path="/checkout" element={<Checkout />}/>
+        <Route path="/orderSummary" element={<OrderSummary />}/>
         <Route path="/mockman" element={<MockAPI />} />
         
       </Routes>

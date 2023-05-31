@@ -3,12 +3,16 @@ import CheckoutAddress from "./CheckoutAddress";
 import { useAddress } from "../../context/AddressContext";
 import "./Checkout.css"
 import { useData } from "../../context/DataContext";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const {
     addressListState: { selectedAddress },
   } = useAddress();
   const {state :{cartProducts}} = useData();
+  const navigate = useNavigate();
+
+
   const productPrice=(price, qty) => Number(price) * qty;
   const totalPrice = cartProducts.reduce(
     (acc, curr) => (acc += Number(curr.price) * curr.qty),
@@ -29,7 +33,9 @@ const Checkout = () => {
             <h4>Purchased Items</h4>
             {
               cartProducts.map((product)=>(
-            <div key={product._id}>
+            <div 
+            className="purchased-items"
+            key={product._id}>
             <p style={{display:"flex", justifyContent:"space-between"}}>
               <span className="purchased-product"> {product.name}</span>
            * 
@@ -47,14 +53,14 @@ const Checkout = () => {
           className="order-billing"
           style={{ borderBottom: "1px solid #000" }}>
             
-            <p>Total MRP <span>${totalPrice}</span>  </p>
-            <p>Total discount  <span> - ${discount}</span> </p>
-            <p>delivery fee: <span>Free</span> </p>
-            <p>Sub Total <span>${subTotal}</span>  </p>
+            <p>Sub Total <span>${totalPrice}</span>  </p>
+            <p> Discount  <span> - ${discount}</span> </p>
+            <p>Delivery Charges: <span>Free</span> </p>
+            <p className="subTotal-price"> Total <span>${subTotal}</span>  </p>
           </div>
           <div >
             <h4>Delivering To:</h4>
-            <div>
+            <div   className="selected-address">
               <p>
                 <b>{selectedAddress.name}</b>
               </p>
@@ -67,7 +73,15 @@ const Checkout = () => {
               </p>
               <p>Phone Number: {selectedAddress.phone}</p>
             </div>
-            <button>Place Order</button>
+            <div
+             style={{display: "flex",
+    justifyContent: "center",
+    alignItems: "center"}}>
+ <button
+ onClick={()=>navigate("/orderSummary")}
+ className="order-btn">Place Order</button>
+            </div>
+           
           </div>
         </div>
       </div>
