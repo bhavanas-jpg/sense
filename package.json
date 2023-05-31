@@ -3,10 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cra-template-mockbee-ecommerce": "1.2.0",
+    "axios": "^0.24.0",
+    "dayjs": "^1.11.7",
+    "jsonwebtoken": "^9.0.0",
+    "jwt-decode": "^3.1.2",
+    "jwt-encode": "^1.0.1",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
+    "miragejs": "^0.1.47",
+    "mockman-js": "^1.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-router-dom": "^6.11.1",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^9.1.3",
+    "sort-by": "^0.0.2",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

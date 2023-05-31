@@ -1,0 +1,57 @@
+.checkout-card{
+  
+    padding: 1rem 1.5rem;
+    flex: 45%;
+    height: 400px;
+}
+.checkout-address-card{
+    flex: 45% ;  
+}
+.checkout-card h4{
+    margin-top: 1rem;
+}
+.checkout-addresses{
+    box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
+    border-radius: 8px;
+    padding: 1rem;
+    background: linear-gradient(rgb(221 221 221), rgb(255 255 255) 30%, rgb(203 205 200) 100%);
+    margin-bottom: 1.5rem;
+}
+.checkout-addresses p{
+    margin-bottom: 4px;
+}
+.checkout-card h4{
+    margin-bottom: 0.7rem;
+}
+.purchased-product{
+    width: 200px;
+}
+.checkout-card p{ 
+    margin-bottom: 7px;
+}
+.order-billing,
+.purchased-items,
+.selected-address {
+    padding: 0.5rem;
+}
+.order-billing p{
+    display: flex;
+    justify-content: space-between;
+}
+.order-btn{
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    box-shadow: rgba(253, 251, 247, 0.45) 0px 0px 0px 1.3px, rgb(155, 4, 111) 0px 0px 0px 1px;
+    color: rgb(253, 251, 247);
+    background-color: rgb(172, 41, 134);
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.subTotal-price{
+    color:rgba(57, 56, 56, 1);
+    font-weight: 600;
+    font-size: 18px;
+}

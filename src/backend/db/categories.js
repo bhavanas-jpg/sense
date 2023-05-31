@@ -1,4 +1,8 @@
 import { v4 as uuid } from "uuid";
+import img1 from "../../assets/home_page_images/home_skin_care.jpg"
+import img2 from "../../assets/home_page_images/home_body_care.jpg"
+import img3 from "../../assets/home_page_images/home_nail_polish.jpg"
+
 
 /**
  * Category Database can be added here.
@@ -8,20 +12,25 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+    image : img1,
+    categoryName: "Skin Care",
+    description: "Keep your skin looking and feeling its best with an all-natural, plant-based routine.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+    image : img2,
+    categoryName: "Body Care",
+    description: "Treat your skin and indulge your senses with luxurious formulas, spa-grade tools, and irresistible scents.",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+    image : img3,
+    categoryName: "Nail Polish",
+    description: "Rich colors that last, without any of the toxic ingredients typically found in nail polish.",
   },
+  {
+    _id: uuid(),
+    categoryName:"Hair Care",
+    description: "Expertly blended shampoos and conditioners mean every day can be a good hair day."
+  }
 ];

@@ -1,13 +1,87 @@
-body {
+*{
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+ 
+}
+ul li{
+  list-style: none;
+}
+  body {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient( 180deg, rgb(249, 246, 242), rgb(233, 243, 220) 100% );
+    background-repeat: no-repeat;
+    background-size: auto;
+    color: rgba(36, 34, 45, 0.75);
+    font-family: "Harmonia-Sans-Regular" ;
+}
+.heading{
+  margin-bottom: 1rem;
+}
+.hg-100{
+  height: 100vh;
+}
+.ml-1{
+  margin-left: 1rem;
+}
+.mb-1{
+  margin-bottom: 1rem;
+}
+.txt-algn--center{
+  text-align: center;
+}
+.flex-wd--50{
+  flex: 50%
+}
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.dis-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/**reusable styles **/
+.add-address--btn{
+  padding: 8px 15px;
+  border: none;
+  outline: none;
+  background-color: #24222D;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-bottom: 1.3rem;
+}
+.address-card{
+  box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #edeeee;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+@media(min-width: 768px){
+  .container {
+      max-width: 700px;
+      margin: 0 auto;
+  }
+}
+@media(min-width: 1024px){
+  .container {
+   max-width: calc(100% - 19rem);
+   margin: 0 auto;
+  }
+}
+  @media(min-width: 1440px){
+    .container {
+      max-width: calc(100% - 19rem);
+        margin: 0 auto;
+    }
 }
