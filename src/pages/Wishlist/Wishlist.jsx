@@ -7,9 +7,12 @@ const Wishlist = () => {
   const {state} = useData();
   const {wishlistProducts} = state;
   return (
-    <div style={{height: "100vh"}} className='container wishlist'>
-    <h1>WISHLIST</h1>
-    <p>my wishlist has {wishlistProducts.length} items</p>
+    <>   
+    {wishlistProducts?.length === 0 ?
+    <div className="container hg-100"><h1>No Items in wishlist </h1></div>
+     : 
+    <div  className='container hg-100 wishlist'>
+    <h1> YOUR WISHLIST</h1>
     <div className='product-card-container'>
           {
             wishlistProducts.map(product => (
@@ -18,7 +21,11 @@ const Wishlist = () => {
           }
        
         </div>
-    </div>
+        </div>
+    }
+   
+    </>
+    
   )
 }
 

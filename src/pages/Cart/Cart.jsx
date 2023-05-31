@@ -12,10 +12,13 @@ const Cart = () => {
   const {cartProducts} = state;
 
   return (
-    <div className="container hg-100" >
+   <>
+   {cartProducts?.length === 0 ?
+    <div className="container hg-100"><h1>No Items in Cart </h1></div>
+     : 
+     <div className="container hg-100" >
     <h1 className="heading">Your Cart</h1>
-    {/* <p>your cart has {cartProducts.length} items</p> */}
-    <>
+   
     {
       cartProducts.map((item)=>(  
         <div key={item._id}>
@@ -24,12 +27,9 @@ const Cart = () => {
          ))
      } 
    <CartDetails products={cartProducts}/> 
-      
-        
-    
-   
-    </>
     </div>
+     }
+   </> 
   )
 }
 
