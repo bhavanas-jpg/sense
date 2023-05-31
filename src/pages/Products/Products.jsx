@@ -18,7 +18,7 @@ const Products = () => {
     style={{width: "100%", height: "500px", margin:"0 auto"}}
     src="https://i.pinimg.com/originals/1f/2d/f8/1f2df8fad7e9bfcb18d9d553f8fc259b.gif"/> :
     <main className="container ">
-    <h3>All Products</h3>   
+    <h3 className="mb-1">All Products</h3>   
     <Filters />
     <div className='product-card-container'>
       {

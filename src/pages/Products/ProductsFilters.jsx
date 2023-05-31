@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useData } from "../../context/DataContext";
 import { actionTypes, sortBy, filters } from "../../reducer/actionTypes";
+import "./ProductsFilter.css"
 
 const Filters = () => {
   const [filterContainer, setFilterContainer] = useState(false);
@@ -12,34 +13,25 @@ const Filters = () => {
   );
 
   return (
-    <section>
-      <h3 onClick={()=> setFilterContainer(!filterContainer)}>Filters +</h3>
+    <main>
+      <h3 onClick={()=> setFilterContainer(!filterContainer)}>Show Filters +</h3>
      {
       filterContainer &&
-      <div style={{padding: "20px", position:"relative",
-      visibility: {filterContainer} ? "visible": "hidden",
-      transition: "all 1s ease-in-out"
-      }}>
-          <div >
-          <button style={{position:"absolute",right:"2rem"}}
-          onClick={()=>dispatch({type: actionTypes.CLEAR_FILTER})}
-          >Clear All</button>
-          </div>
-  
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            paddingTop:"40px"
-            
-          }}
-        >
+      <div className="filter-container"
+      style={{visibility: {filterContainer} ? "visible": "hidden"}}>
+            <div >
+            <button style={{position:"absolute",right:"2rem"}}
+            onClick={()=>dispatch({type: actionTypes.CLEAR_FILTER})}
+            >Clear All</button>
+            </div>
+        <section 
+        className="filter-subcontainer">
           {/* category checkbox */}
-          <div>
-            <h5>Categories</h5>
+          <div >
+            <h4 className="mb-1">Categories</h4>
             {Object.keys(state.filters.categories).map((category) => (
-              <div key={category}>
-                <label>
+              <div key={category} className="filter-input" >
+                <label >
                   <input
                     type="checkbox"
                     name="category-checkbox"
@@ -64,10 +56,10 @@ const Filters = () => {
           </div>
           {/* ratings radio */}
           <div>
-            <h5>Ratings</h5>
+            <h4>Ratings</h4>
             {ratings.map((rateValue) => (
-              <div key={rateValue}>
-                <label>
+              <div key={rateValue} className="filter-input">
+                <label >
                   <input
                     type="radio"
                     value={rateValue}
@@ -90,9 +82,9 @@ const Filters = () => {
           </div>
           {/* sortBy radio */}
           <div>
-            <h5>Sort By Price</h5>
+            <h4>Sort By Price</h4>
             {Object.values(sortBy).map((sortValue) => (
-              <div key={sortValue}>
+              <div key={sortValue} className="filter-input">
                 <label>
                   <input
                     type="radio"
@@ -116,8 +108,8 @@ const Filters = () => {
           </div>
           {/* price ranger */}
           <div>
-            <h5>Price Ranger</h5>
-            <div>
+            <h4>Price Ranger</h4>
+            <div className="filter-input">
               <label htmlFor="">
                 <span>0</span>
                 <span>{Math.ceil(maxValue / 2)}</span>
@@ -144,12 +136,10 @@ const Filters = () => {
             </div>
           </div>
           {/* price ranger: end */}
+        </section>
         </div>
-        </div>
-     }
-     
-      
-    </section>
+     } 
+    </main>
   );
 };
 

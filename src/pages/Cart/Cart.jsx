@@ -17,8 +17,7 @@ const Cart = () => {
     <div className="container hg-100"><h1>No Items in Cart </h1></div>
      : 
      <div className="container hg-100" >
-    <h1 className="heading">Your Cart</h1>
-   
+    <h1 className="heading">Your Cart</h1> 
     {
       cartProducts.map((item)=>(  
         <div key={item._id}>

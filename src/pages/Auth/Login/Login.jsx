@@ -24,6 +24,9 @@ const loginHandler= async(e, email, password)=>{
 
       localStorage.setItem("token", res.data.encodedToken);
       localStorage.setItem("isAuth", true);
+      localStorage.setItem("firstName", res.data.foundUser.firstName);
+      localStorage.setItem("lastName", res.data.foundUser.lastName)
+      localStorage.setItem("email",res.data.foundUser.email )
 
     setAuth({
       token: res.data.encodedToken,

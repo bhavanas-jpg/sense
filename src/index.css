@@ -60,7 +60,6 @@ ul li{
   box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
   border-radius: 8px;
   padding: 1rem;
-  background: #edeeee;
   display: flex;
   justify-content: space-between;
 }

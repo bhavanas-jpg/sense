@@ -40,10 +40,10 @@
     margin-left: 8px
 }
 .address-card{
-    box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
+    box-shadow: rgb(14 14 14 / 24%) 0px 3px 6px;
     border-radius: 8px;
     padding: 1rem;
-    background: linear-gradient(rgb(221 221 221), rgb(255 255 255) 30%, rgb(203 205 200) 100%);
+    
     display: flex;
     justify-content: space-between;
 }
@@ -52,6 +52,7 @@
     outline: none;
     margin-right: 1rem;
     cursor: pointer;
+    background: transparent;
 }
 .address-card p{
     margin-bottom: 4px;
@@ -60,10 +61,11 @@
     color: #24222D;
 }
 .edit-btn i{
-   color: rgb(54, 133, 235);
+   color: #000;
    font-size: 22px;
+   background: transparent;
 }
 .delete-btn .fa.fa-solid.fa-trash{
-    color: rgb(229, 56, 56);
+    color: #000;
     font-size: 22px;
 }
