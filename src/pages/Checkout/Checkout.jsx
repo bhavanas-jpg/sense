@@ -4,12 +4,13 @@ import { useAddress } from "../../context/AddressContext";
 import "./Checkout.css"
 import { useData } from "../../context/DataContext";
 import { useNavigate } from "react-router-dom";
+import OrderSummary from "../Order/OrderSummary";
 
 const Checkout = () => {
   const {
     addressListState: { selectedAddress },
   } = useAddress();
-  const {state :{cartProducts}} = useData();
+  const {state :{cartProducts}, showModal, setShowModal} = useData();
   const navigate = useNavigate();
 
 
@@ -78,14 +79,19 @@ const Checkout = () => {
     justifyContent: "center",
     alignItems: "center"}}>
  <button
- onClick={()=>navigate("/orderSummary")}
+ onClick={()=>setShowModal(true)}
  className="order-btn">Place Order</button>
+{showModal && <OrderSummary />}
+
             </div>
            
           </div>
         </div>
       </div>
     </div>
+
+
+
   );
 };
 

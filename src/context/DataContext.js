@@ -13,6 +13,7 @@ export const DataContext = createContext(null);
 export const DataProvider = ({children})=>{
     const [state, dispatch] = useReducer(dataReducer, inititalState);
     const [loader, setLoader] = useState(true);
+    const [showModal, setShowModal] = useState(false);
    const {SET_CART, SET_WISHLIST} = actionTypes;
    const {auth} = useAuth();
 
@@ -77,7 +78,7 @@ export const DataProvider = ({children})=>{
 
 
     return(
-        <DataContext.Provider value={{state, dispatch, loader, setLoader}}>
+        <DataContext.Provider value={{state, dispatch, loader, setLoader,showModal, setShowModal}}>
             {children}
         </DataContext.Provider>
     )
