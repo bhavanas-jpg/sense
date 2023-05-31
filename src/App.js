@@ -1,5 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import MockAPI from "./components/Mockman/Mockman";
 import Navbar from "./components/Navbar/Navbar";
@@ -22,6 +25,11 @@ import OrderSummary from "./pages/Order/OrderSummary";
 function App() {
   return (
     <div className="App">
+      <ToastContainer
+					// theme="colored"
+					autoClose={1000}
+					position="top-right"
+				/>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

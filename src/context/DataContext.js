@@ -12,7 +12,7 @@ export const DataContext = createContext(null);
 
 export const DataProvider = ({children})=>{
     const [state, dispatch] = useReducer(dataReducer, inititalState);
-    const [loader, setLoader] = useState(false);
+    const [loader, setLoader] = useState(true);
    const {SET_CART, SET_WISHLIST} = actionTypes;
    const {auth} = useAuth();
 
@@ -57,6 +57,7 @@ export const DataProvider = ({children})=>{
         try{
         const productRes = await getAllProducts();
         if(productRes.status === 200 || productRes.status === 201 ){
+            setLoader(false)
             dispatch({type:"GET_DATA",payload:{products:productRes.data.products}})
         }
 
@@ -66,6 +67,7 @@ export const DataProvider = ({children})=>{
         }
 
         }catch(error){
+            setLoader(false)
             console.error(error);
         }
      })()

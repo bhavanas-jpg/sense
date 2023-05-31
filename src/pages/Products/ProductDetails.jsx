@@ -6,6 +6,7 @@ import { actionTypes } from '../../reducer/actionTypes';
 import { addToCartService } from '../../services/services';
 import { useAuth } from '../../context/AuthContext';
 import { addToWishlistService } from '../../services/wishlist-services';
+import {  toast } from 'react-toastify';
 
 const ProductDetails = () => {
  const {productId} = useParams();
@@ -27,7 +28,7 @@ const addToCartServerCall = async() =>{
     try{
         const res = await addToCartService(product, auth.token );
         if(res.status === 200  || res.status === 201){
-        //   toast.success("Added to Cart");
+          toast.success("Added to Cart");
           setAddingToCart(false);
           dispatch({
             type: SET_CART,
@@ -36,7 +37,7 @@ const addToCartServerCall = async() =>{
         }
     }catch(error){
         console.error(error);
-        // toast.error("Couldn't add to cart, try again later!");
+        toast.error("Couldn't add to cart, try again later!");
     }
 }
 
@@ -45,7 +46,7 @@ const addToWishlistServerCall =async()=>{
   try{
   const res = await addToWishlistService(product, auth.token);
   if(res.status === 200 || res.status === 201){
-    // toast.success("added to wishlist");
+    toast.success("added to wishlist");
     setAddingToWishlist(false)
     dispatch({
       type: SET_WISHLIST,
@@ -54,7 +55,7 @@ const addToWishlistServerCall =async()=>{
   }
   }catch(error){
     console.error(error);
-    // toast.error("Couldn't add to wishlist, try again later!")
+    toast.error("Couldn't add to wishlist, try again later!")
   }
 }
 

@@ -6,6 +6,8 @@ import { useAuth } from '../../context/AuthContext';
 import { actionTypes } from '../../reducer/actionTypes';
 import {addToWishlistService, removeFromWishlistService,getWishlistService } 
 from '../../services/wishlist-services/index'
+import {  toast } from 'react-toastify';
+
 
 
 const ProductCard = ( {product}) => {
@@ -22,18 +24,16 @@ const ProductCard = ( {product}) => {
     addingToWishlist: false,
     removeFromWishlist: false
   });
-  
-
-
   const {_id,name,img,price,ratings} = product;
-
  
+
   const addToCartServerCall = async() =>{
     setAddingToCart(true);
     try{
       const res = await addToCartService(product, auth.token);
       if(res.status === 200 || res.status === 201 ){
-        //toast.success("Added to Cart");
+        toast.success("Added to Cart");
+        
         setAddingToCart(false);
         dispatch({
           type: SET_CART,
@@ -42,7 +42,7 @@ const ProductCard = ( {product}) => {
       }
     }catch(error){
       console.error(error);
-      // toast.error("Couldn't add to cart, try again later!")
+      toast.error("Couldn't add to cart, try again later!")
     }
   }
   const addToWishlistServerCall =async()=>{
@@ -50,7 +50,7 @@ const ProductCard = ( {product}) => {
     try{
     const res = await addToWishlistService(product, auth.token);
     if(res.status === 200 || res.status === 201){
-      // toast.success("added to wishlist");
+      toast.success("added to wishlist");
       setWishlist({...wishlist, addingToWishlist :false});
       dispatch({
         type: SET_WISHLIST,
@@ -59,7 +59,7 @@ const ProductCard = ( {product}) => {
     }
     }catch(error){
       console.error(error);
-      // toast.error("Couldn't add to wishlist, try again later!")
+      toast.error("Couldn't add to wishlist, try again later!")
     }
   }
 
@@ -68,7 +68,7 @@ const ProductCard = ( {product}) => {
     try{
       const res = await removeFromWishlistService(product._id, auth.token);
       if(res.status === 200 || res.status === 201){
-        // toast.success("Removed from wishlist");
+        toast.success("Removed from wishlist");
         setWishlist({...wishlist, removeFromWishlist :false, inWishlist: false});
         dispatch({
           type: SET_WISHLIST,
@@ -77,7 +77,7 @@ const ProductCard = ( {product}) => {
       }
 
     }catch(error){
-      // toast.error("Please try again after some time")
+      toast.error("Please try again after some time")
     }
 
   }
@@ -118,16 +118,17 @@ const ProductCard = ( {product}) => {
         </p>
         <button 
         onClick={
+         
           auth.isAuth ? 
           inCart ? ()=>navigate("/cart"): ()=>addToCartServerCall()
           : ()=>navigate("/login")
+         
         }
         className="cart-btn">
           {inCart ? "Go to Cart" : "Add to cart"}
           </button>       
       </div>
     </div>
-  
  </> 
   )
 }

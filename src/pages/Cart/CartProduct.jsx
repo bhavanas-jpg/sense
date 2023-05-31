@@ -7,6 +7,7 @@ import { useData } from "../../context/DataContext";
 import "./Cart.css"
 import { addToWishlistService } from "../../services/wishlist-services";
 import { useNavigate } from "react-router-dom";
+import {  toast } from 'react-toastify';
 
 const CartProduct = ({ product }) => {
   const {state , dispatch } = useData();
@@ -21,21 +22,24 @@ const CartProduct = ({ product }) => {
     let res = null;
     try {
       if (product.qty === 1 && operation === "decrement") {
+        toast.success("Item removed from cart");
         res = await removeFromCart(product._id, auth.token);
       } else if (operation === "remove") {
         res = await removeFromCart(product._id, auth.token);
+        toast.success("Item removed from cart");
       } else {
+          toast.success("Successfully updated cart");
         res = await cartCounterService(product._id, auth.token, operation);
       }
       if (res.status === 200) {
-        // toast.success("Successfully updated cart");
+       
         dispatch({
           type: SET_CART,
           payload: { cart: res.data.cart },
         });
       }
     } catch (error) {
-      // toast.error("Could not update cart, try again later");
+      toast.error("Could not update cart, try again later");
     }
   };
 
@@ -44,7 +48,7 @@ const CartProduct = ({ product }) => {
     try{
     const res = await addToWishlistService(product, auth.token);
     if(res.status === 200 || res.status === 201){
-      // toast.success("added to wishlist");
+      toast.success("added to wishlist");
       setAddingToWishlist(false)
       dispatch({
         type: SET_WISHLIST,
@@ -53,7 +57,7 @@ const CartProduct = ({ product }) => {
     }
     }catch(error){
       console.error(error);
-      // toast.error("Couldn't add to wishlist, try again later!")
+      toast.error("Couldn't add to wishlist, try again later!")
     }
   }
   useEffect(() => {

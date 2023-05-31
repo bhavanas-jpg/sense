@@ -35,8 +35,7 @@
 .product-quantity button{
     border: none;
     outline: none;
-    
-    
+    background: transparent;  
 }
 .product-quantity--btn{
     padding: 10px ;
