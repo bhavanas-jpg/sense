@@ -68,11 +68,10 @@ const CartProduct = ({ product }) => {
         <div className="cart-product-image">
         <img src={product.img} alt="" />
         </div>    
-
         <div >
           <div>
           <p className="cart-product-name">{product.name}</p>
-        <p>${product.price }</p>
+          <p>${product.price }</p>
           </div> 
           <button 
              className={inWishlist ? "cart-wishlist-btn active":"cart-wishlist-btn " }
@@ -80,10 +79,9 @@ const CartProduct = ({ product }) => {
               auth.isAuth ?  inWishlist ?
                             () => navigate("/wishlist") : ()=>addToWishlistServerCall()
                             :()=>navigate("/login")
-
              }
             >
-            {inWishlist ? "Go to Wishlist" : "Add to WishList"}                
+              <i className={inWishlist ? "fa fa-thin fa-heart active" : "fa fa-thin fa-heart" }></i>       
             </button>
       </div>
       </div>

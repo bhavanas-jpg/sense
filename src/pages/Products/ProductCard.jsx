@@ -104,10 +104,7 @@ const ProductCard = ( {product}) => {
         : ()=> navigate("/login")
       }     
       > 
-       <i className= {wishlist.inWishlist ?"fa fa-thin fa-heart active" : "fa fa-thin fa-heart"}
-        
-        //  ,
-      ></i>
+       <i className= {wishlist.inWishlist ?"fa fa-thin fa-heart active" : "fa fa-thin fa-heart"}></i>
        </button>
         <img src={img} alt="card-image" 
                 onClick={()=> navigate(`/${_id}`)}/>
