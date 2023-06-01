@@ -17,7 +17,7 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
 
  try{
   const res = await signUpService(firstName, lastName, email, password);
-  console.log(res , "signup");
+
   if(res.status === 201){
     localStorage.setItem("token", res.data.encodedToken);
     localStorage.setItem("isAuth", true);

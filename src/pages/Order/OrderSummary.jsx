@@ -80,7 +80,7 @@ const OrderSummary = () => {
         <button onClick={()=>{
 setTimeout(
   ()=>{
-    dispatch({ type: RESET });
+    // dispatch({ type: RESET });
 navigate("/")
     
   }, 1500

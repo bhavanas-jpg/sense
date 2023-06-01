@@ -3,6 +3,7 @@ import { useAuth } from '../../../context/AuthContext'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loginService } from '../../../services/services';
 import "../Auth.css"
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
@@ -21,7 +22,7 @@ const loginHandler= async(e, email, password)=>{
     const res = await loginService(email, password);
     console.log(res.data , "login response");
     if(res.status === 200){
-
+     toast.success("Login Successfully")
       localStorage.setItem("token", res.data.encodedToken);
       localStorage.setItem("isAuth", true);
       localStorage.setItem("firstName", res.data.foundUser.firstName);

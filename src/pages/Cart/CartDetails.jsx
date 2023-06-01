@@ -29,7 +29,7 @@ const CartDetails = ({ products }) => {
       </div>
 
       <div className="mb-1 txt-algn--center">
-        <button className="checkout-btn" onClick={() => navigate("/checkout")}>
+        <button className="secondary--btn" onClick={() => navigate("/checkout")}>
           checkout
         </button>
       </div>

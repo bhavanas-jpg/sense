@@ -23,6 +23,7 @@ import OrderSummary from "./pages/Order/OrderSummary";
 import OrderSuccessful from "./pages/Order/OrderSuccessful";
 import Loader from "./components/Loader";
 import { useData } from "./context/DataContext";
+import ProductNotFound from "./pages/Products/ProductNotFound";
 
 
 function App() {
@@ -32,10 +33,8 @@ function App() {
       <ToastContainer
 					// theme="colored"
 					autoClose={1000}
-					position="top-right"
+					position="top-center"
 				/>
-     
-
       <Navbar />
       {
     loader &&
@@ -75,6 +74,7 @@ function App() {
         <Route path="/orderSummary" element={<OrderSummary />}/>
         <Route path="/orderPlaced" element={<OrderSuccessful />}/>
         <Route path="/loading" element={<Loader />}/>
+        <Route path="/noItems" element={<ProductNotFound/>}/>
         <Route path="/mockman" element={<MockAPI />} />
         
       </Routes>

@@ -52,6 +52,18 @@ h2{
 }
 
 /**reusable styles **/
+.secondary--btn{
+  border: none;
+  outline: none;
+  padding: 8px 25px;
+  border-radius: 20px;
+  box-shadow: rgba(253, 251, 247, 0.45) 0px 0px 0px 1.3px, rgb(155, 4, 111) 0px 0px 0px 1px;
+  color: rgb(253, 251, 247);
+  background-color: rgb(172, 41, 134); 
+  font-size: 1rem; 
+  margin-top: 1rem;
+  letter-spacing: 1px;
+}
 .add-address--btn{
   padding: 8px 15px;
   border: none;
