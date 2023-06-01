@@ -10,6 +10,7 @@ const Products = () => {
   const { filteredData } = useFilterHook();
 
   return (
+
     <>
     {filteredData.length === 0 ? (
            <ProductNotFound />
@@ -30,5 +31,6 @@ const Products = () => {
     </>
   );
 };
+
 
 export default Products;
