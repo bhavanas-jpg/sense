@@ -9,7 +9,9 @@ const Wishlist = () => {
   return (
     <>   
     {wishlistProducts?.length === 0 ?
-    <div className="container hg-100"><h1>No Items in wishlist </h1></div>
+    <div className="container hg-100">
+      <h1>No Items in wishlist </h1>
+      </div>
      : 
     <div  className='container hg-100 wishlist'>
     <h1> YOUR WISHLIST</h1>

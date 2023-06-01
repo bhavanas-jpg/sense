@@ -11,21 +11,29 @@ const Cart = () => {
   const {state} = useData();
   const {cartProducts} = state;
 
+  console.log(cartProducts);
+
   return (
    <>
    {cartProducts?.length === 0 ?
-    <div className="container hg-100"><h1>No Items in Cart </h1></div>
+    <div className="container hg-100">
+      <h1>No Items in Cart </h1>
+      </div>
      : 
      <div className="container hg-100" >
     <h1 className="heading">Your Cart</h1> 
-    {
+    <section className="cart-section">
+      <div className="cart-product--section">
+      {
       cartProducts.map((item)=>(  
         <div key={item._id}>
               <CartProduct product={item} />
         </div>
          ))
      } 
-   <CartDetails products={cartProducts}/> 
+      </div>
+      <div className="cart-detail--section"><CartDetails products={cartProducts}/></div>
+    </section>
     </div>
      }
    </> 

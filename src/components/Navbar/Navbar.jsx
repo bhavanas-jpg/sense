@@ -44,25 +44,30 @@ const Navbar = () => {
           <div >
             <ul className="list">
             <li className="list-items">
-              <NavLink to="/products">Shop</NavLink>
+              <NavLink  className="shop-link" to="/products">Shop</NavLink>
               </li>
               <li className="list-items">
                 <NavLink to="/wishlist">
-                  <i class=" fa fa-thin fa-heart"></i>
-                  {wishlistProducts.length !==0 && wishlistProducts.length }
+                  <i class=" nav-icon fa fa-thin fa-heart"></i>
+                  <span
+                  style={{display: wishlistProducts.length !==0 ? "flex" : "none"}}
+                  > {wishlistProducts.length !==0 && wishlistProducts.length }</span>
+                 
                 </NavLink>{" "}
               </li>
               <li className="list-items">
                 <NavLink to="/cart">
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  {cartProducts.length !==0 && cartProducts.length}
+                  <i class=" nav-icon fa fa-shopping-cart" aria-hidden="true"></i>
+                  <span
+                  style={{display: cartProducts.length!==0 ? "flex" : "none"}}
+                  > {cartProducts.length !==0 && cartProducts.length}</span>   
                 </NavLink>
               </li>
               <li className="list-items">
                
                 {auth.isAuth ? (
                     <NavLink to="/profile">
-                    <i class=" fa fa-thin fa-user"></i>
+                    <i class=" profile-icon fa fa-thin fa-user"></i>
                   </NavLink>
                 ): (
                   <NavLink to="/login">

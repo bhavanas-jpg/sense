@@ -8,6 +8,7 @@ import "./Cart.css"
 import { addToWishlistService } from "../../services/wishlist-services";
 import { useNavigate } from "react-router-dom";
 import {  toast } from 'react-toastify';
+import CartDetails from "./CartDetails";
 
 const CartProduct = ({ product }) => {
   const {state , dispatch } = useData();
@@ -66,8 +67,8 @@ const CartProduct = ({ product }) => {
   }, [ wishlistProducts])
 
   return (
-   
-      <div className="cart-product-card ">
+  
+           <div className="cart-product-card ">
       <div className="cart-product">
         <div className="cart-product-image">
         <img src={product.img} alt="" />
@@ -103,18 +104,17 @@ const CartProduct = ({ product }) => {
     <button 
     className="delte-icon"
     onClick={() => cartCounterServerCall("remove")}>
-
     <i class=" fa fa-solid fa-trash"></i>
     </button>
     
-    </div>
-   
-       
+    </div>    
       <div className="product-total">
         <p>${product.price * product.qty}</p>
       </div>
       
-    </div>
+       </div>
+   
+     
  
 
   );
