@@ -30,11 +30,13 @@ function App() {
   const {loader} = useData();
   return (
     <div className="App">
+    
       <ToastContainer
 					// theme="colored"
 					autoClose={1000}
 					position="top-center"
 				/>
+       
       <Navbar />
       {
     loader &&

@@ -4,10 +4,10 @@ import { actionTypes, sortBy, filters } from "../../reducer/actionTypes";
 import "./ProductsFilter.css";
 
 const Filters = () => {
-  const [filterContainer, setFilterContainer] = useState(false);
+  const [filterContainer, setFilterContainer] = useState(true);
   const { state, dispatch } = useData();
-  const content = useRef(null);
-  const [height, setHeight] = useState("0px");
+  // const content = useRef(null);
+  // const [height, setHeight] = useState("0px");
 
   const ratings = ["4", "3", "2", "1"];
   const maxValue = state.productsData.reduce(
@@ -15,16 +15,19 @@ const Filters = () => {
     0
   );
 
-  const toggleFilter = () => {
-    setFilterContainer(!filterContainer);
-    setHeight(!filterContainer ? "0px" : `${content.current.scrollHeight}px`);
-  };
+  // const toggleFilter = () => {
+  //   // setFilterContainer(!filterContainer);
+  //   // setHeight(filterContainer ? "0px" : `${content.current.scrollHeight}px`);
+  // };
 
-  console.log(height);
+
 
   return (
     <main>
-      <p className="filter-icon" onClick={toggleFilter}>
+      <p className="filter-icon" onClick={()=>{
+        // toggleFilter()
+        setFilterContainer(prev => !prev)
+      }}>
         Filters
         <i className="filter-icon fa fa-solid fa-filter"></i>
       </p>
@@ -32,8 +35,8 @@ const Filters = () => {
       {/* {
       filterContainer && */}
       <div
-        ref={content}
-        style={{ maxHeight: `${height}` }}
+        // ref={content}
+        style={{ maxHeight:  filterContainer ? "0px" : "400px" }}
         className="accordion__content"
       >
         <div className="filter-container">

@@ -1,3 +1,4 @@
+
 import { actionTypes, filters } from "./actionTypes";
 
 export const inititalState={
@@ -69,8 +70,13 @@ export const dataReducer =(state, action)=>{
                 ...state,
 				cartProducts: [],
 				wishlistProducts: []
-            }
-        
+            }   
+        case actionTypes.CART_RESET:
+            console.log(action.payload);
+            return{
+                ...state,
+                cartProducts: action.payload
+            }       
             default:
                 return state;
     }

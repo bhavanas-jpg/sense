@@ -3,7 +3,11 @@ import { useAddress } from "../../context/AddressContext";
 import { useData } from "../../context/DataContext";
 import "./OrderSummary.css";
 import { useNavigate } from "react-router-dom";
-import { actionTypes } from "../../reducer/actionTypes";
+import { useAuth } from "../../context/AuthContext";
+import { removeFromCart } from "../../services/cart-services/removeFromCart";
+
+
+
 
 const OrderSummary = () => {
   const {
@@ -15,9 +19,29 @@ const OrderSummary = () => {
     setShowModal,
     dispatch
   } = useData();
+  const {auth} = useAuth();
 
   const navigate = useNavigate();
-  const { RESET } = actionTypes;
+  let res = null
+  const cartReset =() =>{
+ cartProducts.map(({_id})=>
+   (async () => {
+    try{
+      res = await  removeFromCart(_id, auth.token)
+      if(res.status === 200){
+        dispatch({
+          type: "CART_RESET",
+          payload: res.data.cart
+        })
+      }
+    }catch(error){
+      console.error(error)
+    }
+  })()
+       )
+
+  }
+  console.log(cartProducts);
 
 
 
@@ -80,13 +104,13 @@ const OrderSummary = () => {
         <button onClick={()=>{
 setTimeout(
   ()=>{
-    // dispatch({ type: RESET });
+   
 navigate("/")
-    
+setShowModal(false) 
   }, 1500
 )
 navigate("/orderPlaced")
-
+cartReset()
         }
           
          }>Confirm Order</button>
