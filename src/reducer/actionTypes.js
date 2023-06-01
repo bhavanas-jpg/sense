@@ -4,7 +4,8 @@ export const actionTypes ={
     SET_CART : 'SET_CART',
     SET_WISHLIST : 'SET_WISHLIST ',
     SET_ORDERS: 'SET_ORDERS',
-    RESET : 'RESET'
+    RESET : 'RESET',
+    CART_RESET :'CART_RESET'
 }
 
 export const filters ={

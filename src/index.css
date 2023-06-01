@@ -50,7 +50,13 @@ h2{
   justify-content: space-between;
   align-items: center;
 }
-
+.loader-img{
+  width: 200px ;
+  height: 200px ;
+  border-radius:50%;
+  margin-top:2rem;
+  object-fit:cover;
+}
 /**reusable styles **/
 .secondary--btn{
   border: none;
