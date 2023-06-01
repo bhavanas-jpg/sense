@@ -17,9 +17,16 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
 
  try{
   const res = await signUpService(firstName, lastName, email, password);
+
   if(res.status === 201){
     localStorage.setItem("token", res.data.encodedToken);
     localStorage.setItem("isAuth", true);
+     localStorage.setItem("firstName", res.data.createdUser
+.firstName);
+     localStorage.setItem("lastName", res.data.createdUser
+.lastName)
+     localStorage.setItem("email",res.data.createdUser
+.email )
     
 
     setAuth({

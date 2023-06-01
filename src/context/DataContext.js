@@ -64,6 +64,7 @@ export const DataProvider = ({children})=>{
 
         const categoryRes = await getAllCategories();
         if(categoryRes.status === 200 || categoryRes.status === 201 ){
+            setLoader(false)
             dispatch({type:"GET_CATAGORIES",payload: {categories:categoryRes.data.categories}})
         }
 

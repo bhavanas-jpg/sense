@@ -10,17 +10,23 @@ const UserProfile = () => {
 
   return (
     <div className="container hg-100" >    
-      <div className='user-profile'>
+      <div className='tab-header'>
         <ul className="user-profile--links">
-          <li>
+          <li className={currPage === "Profile" ? "active-link": ""}>
             <Link 
-            className="user-profile--link"
-            to="/profile">Profile</Link>
+            style={{color:currPage === "Profile" ? "#fff": "" }}
+            className="user-profile--link "
+            to="/profile"
+            onClick={()=> setCurrPage("Profile")}
+            >Profile</Link>
           </li>      
-          <li>
+          <li className={currPage === "Addresses" ? "active-link": ""}>
             <Link 
-            className="user-profile--link"
-            to="/profile/addresses">Addresses</Link>
+            style={{color:currPage === "Addresses" ? "#fff": "" }}
+            className="user-profile--link "
+            to="/profile/addresses"
+            onClick={()=> setCurrPage("Addresses")}
+            >Addresses</Link>
           </li>
         </ul>
       </div>

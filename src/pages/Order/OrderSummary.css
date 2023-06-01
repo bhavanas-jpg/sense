@@ -6,12 +6,18 @@
     background-color: rgb(248, 248, 245);
     box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
 }
-.selected-address--order,
+.selected-address--order{
+    box-shadow:  rgb(14 14 14 / 24%) 0px 3px 6px;
+    border-radius: 8px;
+    padding: 1rem;
+    background: rgb(253, 252, 252);
+    margin-bottom: 1.5rem;
+}
  .modal-body{
     box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
     border-radius: 8px;
     padding: 1rem;
-    background: linear-gradient(rgb(253, 252, 252), rgb(255 255 255) 50%, rgb(203 205 200) 100%);
+    background: linear-gradient(rgb(253, 252, 252), rgb(255 255 255) 50%, rgb(253, 253, 252) 100%);
     margin-bottom: 1.5rem;
 }
 .modal-body{

@@ -1,12 +1,15 @@
 .product-card-container{
 display: flex;
 flex-wrap: wrap;
+margin-top: 1rem;
 }
 
 .product_card{
     width: 260px;
     margin: 0  0.8rem 1.8rem 0.8rem;
     position: relative;
+    box-shadow: rgb(14 14 14 / 14%) 0px 3px 7px;
+    border-radius: 13px;
     
 }
 .product_card img{
@@ -27,6 +30,7 @@ flex-wrap: wrap;
     text-align: center;
     margin-bottom: 6px;
     height: 2.5rem;
+    letter-spacing: 0.9px;
 }
 .product_card:hover .product-card--title{
     text-decoration: underline;
@@ -39,6 +43,11 @@ flex-wrap: wrap;
     border-radius: 20px;
     width: 100%;
     cursor: pointer;
+    background-color: #f7f0d9;
+    font-size: 15px;
+}
+.cart-btn:hover{
+    background-color:  #52524f;
 }
 .product-ratings{
     background: rgb(0,128,0);

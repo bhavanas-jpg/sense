@@ -10,12 +10,18 @@ const Profile = () => {
   const { dispatch } = useData();
   const navigate = useNavigate();
   const { RESET } = actionTypes;
+  const firstName =   localStorage.getItem("firstName");
+  const lastName = localStorage.getItem("lastName")
+ const email =  localStorage.getItem("email" )
 
 
 
   const ProfileLogoutHandler = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("isAuth");
+    localStorage.removeItem("email" );
+    localStorage.removeItem("lastName");
+    localStorage.removeItem("firstName");
     setAuth({
       token: "",
       isAuth: false,
@@ -30,11 +36,11 @@ const Profile = () => {
   return (
     <div className="user-profile profile">
       <p className="mb-1">
-        <b>Full Name:</b> {auth?.firstName} {auth?.lastName}
+        <b>Full Name:</b> {firstName} {lastName}
       </p>
       <p className="mb-1"> 
         <b>Email :</b>
-       {auth?.userEmail}</p>
+       {email}</p>
       <button 
       className="logout-btn"
       onClick={ProfileLogoutHandler}>Log Out</button>

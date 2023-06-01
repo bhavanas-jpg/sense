@@ -11,10 +11,9 @@
     margin-top: 1rem;
 }
 .checkout-addresses{
-    box-shadow: rgba(57, 56, 56, 0.24) 0px 2px 6px;
+    box-shadow: rgb(14 14 14 / 24%) 0px 3px 6px;
     border-radius: 8px;
     padding: 1rem;
-    background: linear-gradient(rgb(221 221 221), rgb(255 255 255) 30%, rgb(203 205 200) 100%);
     margin-bottom: 1.5rem;
 }
 .checkout-addresses p{

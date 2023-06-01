@@ -124,7 +124,9 @@ const ProductCard = ( {product}) => {
           : ()=>navigate("/login")
          
         }
-        className="cart-btn">
+        className="cart-btn"
+        style={{backgroundColor: inCart ? "#f0e4ba" : "#f7f0d9"}}
+        >
           {inCart ? "Go to Cart" : "Add to cart"}
           </button>       
       </div>

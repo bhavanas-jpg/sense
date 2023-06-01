@@ -36,10 +36,17 @@
     margin-bottom: 1.2rem;
     padding: 9px 0;
     cursor: pointer; 
+    border:none;
+    outline: none;
 }
 .login-btn,
 .signup-btn{
     background: #000;
+    color: #fff;
+}
+.login-btn:hover,
+.signup-btn:hover{
+    background: rgb(172, 41, 134);
     color: #fff;
 }
 .signup-link,

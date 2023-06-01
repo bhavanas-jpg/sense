@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAuth } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Logout = () => {
     const {
@@ -10,6 +11,7 @@ const Logout = () => {
   const navigate = useNavigate();
   
   const ProfileLogoutHandler = () => {
+    toast.success("Logout Successfully")
    localStorage.removeItem("token");
    localStorage.removeItem("isAuth");
    setAuth({

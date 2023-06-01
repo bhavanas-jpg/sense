@@ -1,14 +1,18 @@
 
 .d-flex{
+    display: flex;  
+}
+.cart-section{
     display: flex;
-    
+    justify-content: space-between;
+}
+.cart-product--section{
+    flex: 80%;
 }
 /**cart-product-css**/
 .cart-product-card{
-    display: flex;   
-   flex-wrap: wrap;
-   
-   
+    display: flex; 
+   flex-wrap: wrap; 
 }
 .cart-product{
     display: flex;
@@ -61,31 +65,29 @@
 .fa.fa-solid.fa-trash{
     font-size: 20px;
 }
+/**cart detail : css*/
+.cart-detail--section{
+flex: 20%;
+}
 .cart-detail{
     display: flex;
     justify-content: space-around;
 }
-.total-price-container{
-   flex: 31%
+
+.total-price-container h3{
+    letter-spacing: 0.7px;
 }
 .total-price-container p{
     color: rgb(46,42,57);
-    font-size: 20px;
+    font-size: 17px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
 }
-.empty-div{
-    flex: 88%;
+.cart-price-total{
+    border-top: 1px solid #d0cfcf;
+    padding-top: 6px;
 }
-.checkout-btn{
-    border: none;
-    outline: none;
-    padding: 10px 30px;
-    border-radius: 20px;
-    box-shadow: rgba(253, 251, 247, 0.45) 0px 0px 0px 1.3px, rgb(155, 4, 111) 0px 0px 0px 1px;
-    color: rgb(253, 251, 247);
-    background-color: rgb(172, 41, 134); 
-    font-size: 1rem; 
-    margin-top: 1rem;
-}
+
 
 
 .cart-wishlist-btn{

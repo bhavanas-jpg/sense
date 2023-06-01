@@ -20,17 +20,26 @@ import Addresses from "./pages/UserProfile/Addresses/Addresses";
 import AddressForm from "./pages/UserProfile/Addresses/AddressForm";
 import Checkout from "./pages/Checkout/Checkout";
 import OrderSummary from "./pages/Order/OrderSummary";
+import OrderSuccessful from "./pages/Order/OrderSuccessful";
+import Loader from "./components/Loader";
+import { useData } from "./context/DataContext";
+import ProductNotFound from "./pages/Products/ProductNotFound";
 
 
 function App() {
+  const {loader} = useData();
   return (
     <div className="App">
       <ToastContainer
 					// theme="colored"
 					autoClose={1000}
-					position="top-right"
+					position="top-center"
 				/>
       <Navbar />
+      {
+    loader &&
+   <Loader/>
+      }
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -63,9 +72,14 @@ function App() {
         <Route path="/:productId" element={<ProductDetails />}/>
         <Route path="/checkout" element={<Checkout />}/>
         <Route path="/orderSummary" element={<OrderSummary />}/>
+        <Route path="/orderPlaced" element={<OrderSuccessful />}/>
+        <Route path="/loading" element={<Loader />}/>
+        <Route path="/noItems" element={<ProductNotFound/>}/>
         <Route path="/mockman" element={<MockAPI />} />
         
       </Routes>
+
+     
     </div>
   );
 }
