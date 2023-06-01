@@ -22,8 +22,11 @@ const OrderSummary = () => {
   const {auth} = useAuth();
 
   const navigate = useNavigate();
-  let res = null
+  let res = null;
+
+
   const cartReset =() =>{
+    
  cartProducts.map(({_id})=>
    (async () => {
     try{

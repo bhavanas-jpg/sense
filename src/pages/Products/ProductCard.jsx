@@ -12,7 +12,7 @@ import {  toast } from 'react-toastify';
 
 const ProductCard = ( {product}) => {
   const navigate = useNavigate();
-  const {state, dispatch} = useData();
+  const {state, dispatch,setDisable, disable} = useData();
   const {cartProducts, wishlistProducts} = state;
   const {auth} = useAuth();
   const {SET_CART, SET_WISHLIST} = actionTypes;
@@ -29,6 +29,7 @@ const ProductCard = ( {product}) => {
 
   const addToCartServerCall = async() =>{
     setAddingToCart(true);
+    setDisable(true);
     try{
       const res = await addToCartService(product, auth.token);
       if(res.status === 200 || res.status === 201 ){
@@ -40,6 +41,7 @@ const ProductCard = ( {product}) => {
           payload: {cart: res.data.cart}
         })
       }
+      setDisable(false);
     }catch(error){
       console.error(error);
       toast.error("Couldn't add to cart, try again later!")
@@ -47,6 +49,7 @@ const ProductCard = ( {product}) => {
   }
   const addToWishlistServerCall =async()=>{
     setWishlist({...wishlist, addingToWishlist :true})
+    setDisable(true);
     try{
     const res = await addToWishlistService(product, auth.token);
     if(res.status === 200 || res.status === 201){
@@ -57,6 +60,7 @@ const ProductCard = ( {product}) => {
         payload: {wishlist : res.data.wishlist}
       })
     }
+    setDisable(false);
     }catch(error){
       console.error(error);
       toast.error("Couldn't add to wishlist, try again later!")
@@ -94,7 +98,8 @@ const ProductCard = ( {product}) => {
     <div className="product_card"
         key={_id}
         >
-      <button      
+      <button   
+      disabled={disable}   
       className=  "wishlist-btn"
       onClick={
         auth.isAuth ? 
@@ -117,6 +122,7 @@ const ProductCard = ( {product}) => {
         <i class=" fa fa-thin fa-star"></i>
         </p>
         <button 
+        disabled={disable}
         onClick={
          
           auth.isAuth ? 

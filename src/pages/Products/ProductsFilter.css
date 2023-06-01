@@ -66,3 +66,17 @@ margin-left: 0.5rem;
     display: flex;
     justify-content: space-between;
 }
+.mb-view{
+    max-height: 400px;
+}
+@media(min-width: 320px) and (max-width: 600px){
+    /* .accordion__content{
+        height: max-content;
+        max-height: 600px;
+      
+       
+    } */
+    .filter-subcontainer {
+        flex-wrap: wrap;
+    }
+}

@@ -13,6 +13,8 @@ export const DataContext = createContext(null);
 export const DataProvider = ({children})=>{
     const [state, dispatch] = useReducer(dataReducer, inititalState);
     const [loader, setLoader] = useState(true);
+    const [disable, setDisable] = useState(false);
+    const [categoryFilters, setCategoryFilters] = useState(false)
     const [showModal, setShowModal] = useState(false);
    const {SET_CART, SET_WISHLIST} = actionTypes;
    const {auth} = useAuth();
@@ -67,7 +69,6 @@ export const DataProvider = ({children})=>{
             setLoader(false)
             dispatch({type:"GET_CATAGORIES",payload: {categories:categoryRes.data.categories}})
         }
-
         }catch(error){
             setLoader(false)
             console.error(error);
@@ -76,10 +77,10 @@ export const DataProvider = ({children})=>{
     },[])
 
 
-
-
     return(
-        <DataContext.Provider value={{state, dispatch, loader, setLoader,showModal, setShowModal}}>
+        <DataContext.Provider value={{state, dispatch, loader,
+         setLoader,showModal, setShowModal, disable, setDisable,
+         categoryFilters, setCategoryFilters}}>
             {children}
         </DataContext.Provider>
     )

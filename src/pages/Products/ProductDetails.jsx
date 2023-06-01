@@ -10,7 +10,7 @@ import {  toast } from 'react-toastify';
 
 const ProductDetails = () => {
  const {productId} = useParams();
- const {state , dispatch} = useData();
+ const {state , dispatch, disable, setDisable} = useData();
  const {cartProducts, wishlistProducts} = state;
  const {auth} = useAuth();
  //cart, wishList states
@@ -25,6 +25,7 @@ const navigate = useNavigate();
 
 const addToCartServerCall = async() =>{
     setAddingToCart(true);
+    setDisable(true);
     try{
         const res = await addToCartService(product, auth.token );
         if(res.status === 200  || res.status === 201){

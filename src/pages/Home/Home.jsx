@@ -17,7 +17,7 @@ import Feature from "./Features/Feature";
 const Home = () => {
 
 const navigate = useNavigate();  
-const {state, dispatch} = useData();
+const {state, dispatch,  setCategoryFilters} = useData();
 const [categories, setCategories] = useState([]);
 
 
@@ -49,6 +49,7 @@ const categoryFilter =(category)=>{
   }
 })
  navigate('/products')
+ setCategoryFilters(true)
 }
 
   return (

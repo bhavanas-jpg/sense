@@ -1,34 +1,35 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useData } from "../../context/DataContext";
 import { actionTypes, sortBy, filters } from "../../reducer/actionTypes";
 import "./ProductsFilter.css";
 
 const Filters = () => {
   const [filterContainer, setFilterContainer] = useState(true);
-  const { state, dispatch } = useData();
-  // const content = useRef(null);
-  // const [height, setHeight] = useState("0px");
+  const { state, dispatch, categoryFilters, setCategoryFilters} = useData();
 
   const ratings = ["4", "3", "2", "1"];
   const maxValue = state.productsData.reduce(
     (acc, curr) => (Number(curr.price) > acc ? Number(curr.price) : acc),
     0
   );
+  console.log(categoryFilters , "filters");
 
-  // const toggleFilter = () => {
-  //   // setFilterContainer(!filterContainer);
-  //   // setHeight(filterContainer ? "0px" : `${content.current.scrollHeight}px`);
-  // };
-
-
+  useEffect(()=>{
+    if(categoryFilters){
+      setFilterContainer(false) 
+    } 
+    setCategoryFilters(true) 
+  },[])
+  
 
   return (
     <main>
       <p className="filter-icon" onClick={()=>{
         // toggleFilter()
         setFilterContainer(prev => !prev)
+        
       }}>
-        Filters
+       {filterContainer ?"Show" : "Hide" } Filters
         <i className="filter-icon fa fa-solid fa-filter"></i>
       </p>
 
@@ -36,7 +37,7 @@ const Filters = () => {
       filterContainer && */}
       <div
         // ref={content}
-        style={{ maxHeight:  filterContainer ? "0px" : "400px" }}
+        style={{ maxHeight: categoryFilters && filterContainer ? "0px" : window.innerWidth <= "400px" ? "400px": "600px" }}
         className="accordion__content"
       >
         <div className="filter-container">
