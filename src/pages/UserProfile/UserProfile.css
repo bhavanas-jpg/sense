@@ -55,3 +55,14 @@ justify-content: space-around;
 .active-link a{
     color: rgb(253, 251, 247); 
 }
+@media (min-width: 320px) and (max-width: 600px){
+.tab-header {
+width: 100%;
+}
+.user-profile--links li {
+    padding: 0.8rem;
+}
+.user-profile{
+    width: 100%;
+}
+}

@@ -70,13 +70,20 @@ margin-left: 0.5rem;
     max-height: 400px;
 }
 @media(min-width: 320px) and (max-width: 600px){
-    /* .accordion__content{
-        height: max-content;
-        max-height: 600px;
-      
-       
-    } */
     .filter-subcontainer {
         flex-wrap: wrap;
+        padding: 40px 2rem 0 2rem;
     }
+       .filter-subcontainer div{
+        flex: 100%;
+       }
+       .accordion__content {
+       margin: 1rem;
+        }
+        .filter-title{
+            padding: 0 1.4rem;
+        }
+        .range-input{
+            width: 100%;
+        }
 }

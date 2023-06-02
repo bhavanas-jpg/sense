@@ -69,3 +69,20 @@
     color: #000;
     font-size: 22px;
 }
+
+
+@media (min-width: 320px) and (max-width: 600px){
+.form-container{
+    flex-wrap: wrap;
+}
+.address-form input {
+    width: 100%;
+}
+.address-card  {
+    padding: 0.5rem;
+}
+.address-card  button{
+    margin-right: 0.5rem;
+}
+
+}

@@ -34,7 +34,7 @@ function App() {
       <ToastContainer
 					// theme="colored"
 					autoClose={1000}
-					position="top-center"
+					position="bottom-center"
 				/>
        
       <Navbar />

@@ -22,7 +22,7 @@ const Addresses = () => {
   };
 
   return (
-    <div className="user-profile addresses">
+    <div className="user-profile addresses ">
       <h3 className="mb-1">My Addresses</h3>
       <button className=" add-address--btn" onClick={addressForm}>
         Add New Address  <span  >+</span>

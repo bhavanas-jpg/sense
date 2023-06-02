@@ -34,7 +34,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="user-profile profile">
+    <div className="user-profile profile ">
       <p className="mb-1">
         <b>Full Name:</b> {firstName} {lastName}
       </p>

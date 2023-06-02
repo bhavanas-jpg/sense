@@ -83,6 +83,14 @@
 	 .search-input input {
 	 padding: 14px 18px;
      }
+     .list-items span {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 2.3rem;
+        font-size: 9px;
+        margin-left: 0.8rem;
+    }
 	 }
 
 

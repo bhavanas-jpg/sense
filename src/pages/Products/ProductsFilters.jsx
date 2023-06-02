@@ -24,7 +24,7 @@ const Filters = () => {
 
   return (
     <main>
-      <p className="filter-icon" onClick={()=>{
+      <p className="filter-icon filter-title" onClick={()=>{
         setFilterContainer(prev => !prev)
       }}>
        {filterContainer ?"Show" : "Hide" } Filters
@@ -146,6 +146,7 @@ const Filters = () => {
                 <input
                   type="range"
                   name="rangeInput"
+                  className="range-input"
                   value={state.filters.priceRange}
                   min="0"
                   max={maxValue}

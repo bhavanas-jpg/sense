@@ -53,11 +53,12 @@ const AddressForm = () => {
 
   return (
     addNewAddress && (
-      <div className=" address-form">
+      <div className=" address-form mb-1">
         <div>
           <form
             onSubmit={submitHandler}
-            style={{ display: "flex", flexDirection: "column" }}
+            className="form-container"
+            
           >
             <input
               type="text"
@@ -155,6 +156,7 @@ const AddressForm = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   setFormValues((prev) => ({ ...prev, ...dummyData }));
+                  setDisable(false)
                 }}
               >
                 Enter dummy values

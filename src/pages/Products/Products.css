@@ -86,3 +86,27 @@ margin-top: 1rem;
     transition: 0.2s ease-in-out;
 }
 
+@media (min-width: 320px) and (max-width: 600px){
+    .product_card {
+        margin: 0 1.2rem 2.8rem 1.2rem;
+        flex: 100%
+    }
+    .wishlist-btn i {
+        margin-right: 21px;
+        font-size: 27px;
+    }
+    .product-card--title {
+        font-size: 19px;
+        letter-spacing: 0.9px;
+        }
+    .product-ratings {
+        font-size: 13px;
+        margin-right: 12px;
+        bottom: 10.2rem;
+    }
+    .products-section h2 {
+        padding: 0 1.4rem;
+    }
+    
+    }
+

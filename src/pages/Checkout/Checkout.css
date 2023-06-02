@@ -1,5 +1,9 @@
+.checkout{
+    display: flex;
+    gap: 4rem ;
+}
+
 .checkout-card{
-  
     padding: 1rem 1.5rem;
     flex: 45%;
     height: 400px;
@@ -53,4 +57,16 @@
     color:rgba(57, 56, 56, 1);
     font-weight: 600;
     font-size: 18px;
+}
+
+@media (min-width: 320px) and (max-width: 600px){
+    .checkout{
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 0;
+        flex-direction: column;
+    }
+    .checkout-card{
+        padding: 0;
+    }
 }

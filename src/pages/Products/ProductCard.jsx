@@ -7,7 +7,7 @@ import { actionTypes } from '../../reducer/actionTypes';
 import {addToWishlistService, removeFromWishlistService,getWishlistService } 
 from '../../services/wishlist-services/index'
 import {  toast } from 'react-toastify';
-
+import "../Products/ProductCard.css";
 
 
 const ProductCard = ( {product}) => {

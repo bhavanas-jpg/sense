@@ -18,8 +18,8 @@ const Wishlist = () => {
       onClick={()=>navigate("/products")}>Shop Now</button>
       </div>
      : 
-    <div  className='container hg-100 wishlist'>
-    <h1> YOUR WISHLIST</h1>
+    <div  className='container  wishlist'>
+    <h1 > Your Wishlist</h1>
     <div className='product-card-container'>
           {
             wishlistProducts.map(product => (
