@@ -82,6 +82,7 @@
 	 }
 	 .search-input input {
 	 padding: 14px 18px;
+     border: 1px solid #000;
      }
      .list-items span {
         position: absolute;
