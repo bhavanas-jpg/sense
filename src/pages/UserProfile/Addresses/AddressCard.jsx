@@ -1,7 +1,6 @@
 import React from "react";
 import { useAddress } from "../../../context/AddressContext";
 
-import { useNavigate } from "react-router-dom";
 
 const AddressCard = ({ address }) => {
   const {

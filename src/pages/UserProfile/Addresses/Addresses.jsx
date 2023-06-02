@@ -2,8 +2,7 @@ import React from "react";
 import { useAddress } from "../../../context/AddressContext";
 import AddressCard from "./AddressCard";
 import AddressForm from "./AddressForm";
-import "./Address.css"
-
+import "./Address.css";
 
 const Addresses = () => {
   const {
@@ -25,7 +24,7 @@ const Addresses = () => {
     <div className="user-profile addresses ">
       <h3 className="mb-1">My Addresses</h3>
       <button className=" add-address--btn" onClick={addressForm}>
-        Add New Address  <span  >+</span>
+        Add New Address <span>+</span>
       </button>
       <ul>
         {addressList.map((address) => (

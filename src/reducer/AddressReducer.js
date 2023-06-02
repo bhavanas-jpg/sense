@@ -11,7 +11,7 @@ export const initialAddressState = {
       phone: "1234567890",
     },
   ],
-  selectedId : null,
+  selectedId: null,
   selectedAddress: {
     id: new Date().getTime().toString(36) + new Date().getUTCMilliseconds(),
     name: "Bhavana",
@@ -73,7 +73,7 @@ export const addressListReducer = (state, action) => {
       return {
         ...state,
         selectedAddress,
-        selectedId: action.payload
+        selectedId: action.payload,
       };
 
     default:

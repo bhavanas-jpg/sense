@@ -85,10 +85,6 @@ const Navbar = () => {
                   </NavLink>
                 )}
               </li>
-
-              {/* <li>
-                <NavLink to="/logout">Logout</NavLink>
-              </li> */}
             </ul>
           </div>
         </nav>

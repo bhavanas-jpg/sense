@@ -139,7 +139,7 @@ const CartProduct = ({ product }) => {
           </button>
         </div>
       </div>
-      {/***product-quantity */}
+     
       <div className="product-quantity">
         <span className="product-quantity--btn">
           <button

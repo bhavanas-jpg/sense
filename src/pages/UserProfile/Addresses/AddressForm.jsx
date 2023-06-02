@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useAddress } from "../../../context/AddressContext";
 import "./Address.css";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddressForm = () => {
   const {
     addressState: { addNewAddress },
     setAddressState,
-    formValues, setFormValues, addressDispatch
+    formValues,
+    setFormValues,
+    addressDispatch,
   } = useAddress();
   const navigate = useNavigate();
-  const[disable, setDisable] = useState(true);
-  
+  const [disable, setDisable] = useState(true);
+
   const dummyData = {
     name: "Pavan",
     street: "Plot 999",
@@ -26,7 +28,7 @@ const AddressForm = () => {
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setFormValues((prev) => ({ ...prev, [name]: value }));
-    setDisable(false)
+    setDisable(false);
   };
 
   const resetForm = () => {
@@ -55,11 +57,7 @@ const AddressForm = () => {
     addNewAddress && (
       <div className=" address-form mb-1">
         <div>
-          <form
-            onSubmit={submitHandler}
-            className="form-container"
-            
-          >
+          <form onSubmit={submitHandler} className="form-container">
             <input
               type="text"
               placeholder="Enter name"
@@ -127,7 +125,7 @@ const AddressForm = () => {
             />
             <div>
               <button
-              disabled={disable}
+                disabled={disable}
                 className="save-btn address-form-btn"
                 type="submit"
                 onClick={(e) => {
@@ -156,7 +154,7 @@ const AddressForm = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   setFormValues((prev) => ({ ...prev, ...dummyData }));
-                  setDisable(false)
+                  setDisable(false);
                 }}
               >
                 Enter dummy values

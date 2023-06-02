@@ -31,10 +31,8 @@ const Filters = () => {
         <i className="filter-icon fa fa-solid fa-filter"></i>
       </p>
 
-      {/* {
-      filterContainer && */}
+
       <div
-        // ref={content}
         style={{ maxHeight: categoryFilters && filterContainer ? "0px" : window.innerWidth <= "400px" ? "400px": "600px" }}
         className="accordion__content"
       >
@@ -48,7 +46,6 @@ const Filters = () => {
             </button>
           </div>
           <section className="filter-subcontainer">
-            {/* category checkbox */}
             <div>
               <h4 className="mb-1">Categories</h4>
               {Object.keys(state.filters.categories).map((category) => (
@@ -76,7 +73,6 @@ const Filters = () => {
                 </div>
               ))}
             </div>
-            {/* ratings radio */}
             <div>
               <h4>Ratings</h4>
               {ratings.map((rateValue) => (
@@ -104,7 +100,6 @@ const Filters = () => {
                 </div>
               ))}
             </div>
-            {/* sortBy radio */}
             <div>
               <h4>Sort By Price</h4>
               {Object.values(sortBy).map((sortValue) => (
@@ -132,7 +127,6 @@ const Filters = () => {
                 </div>
               ))}
             </div>
-            {/* price ranger */}
             <div>
               <h4>Price Ranger</h4>
               <div className="filter-input">
@@ -162,11 +156,9 @@ const Filters = () => {
                 />
               </div>
             </div>
-            {/* price ranger: end */}
           </section>
         </div>
       </div>
-      {/* }  */}
     </main>
   );
 };

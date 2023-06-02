@@ -1,8 +1,5 @@
 import React from "react";
 import { useData } from "../../context/DataContext";
-import { useAuth } from "../../context/AuthContext";
-import { actionTypes } from "../../reducer/actionTypes";
-import { removeFromCart } from "../../services/cart-services/removeFromCart";
 import CartProduct from "./CartProduct";
 import CartDetails from "./CartDetails";
 import { useNavigate } from "react-router-dom";

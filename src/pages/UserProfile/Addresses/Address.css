@@ -1,88 +1,96 @@
-.address-form input{
-    border:1px solid #646262;
-    outline:none;
+.address-form input {
+    border: 1px solid #646262;
+    outline: none;
     padding: 10px;
     margin-bottom: 1rem;
     background: transparent;
     border-radius: 5px;
 }
-/* .address-form input:selected{
-    background: transparent !important; 
-} */
-.address-form-btn{
-    border:none;
-    outline:none;
+
+.address-form-btn {
+    border: none;
+    outline: none;
     border-radius: 15px;
     cursor: pointer;
     padding: 5px 10px;
 }
-.save-btn{
+
+.save-btn {
     background-color: rgb(188, 235, 188);
-    
+
 }
-.cancel-btn{
+
+.cancel-btn {
     background-color: rgb(252, 116, 116);
 
 }
-.dummy-btn{
+
+.dummy-btn {
     background-color: #9ccdf5;
 }
 
 
-
-/**addresses css:start*/
-.addresses{
+.addresses {
     padding: 1.5rem 2rem;
 }
 
-.add-address--btn span{
+.add-address--btn span {
     font-size: 1.2rem;
     margin-left: 8px
 }
-.address-card{
+
+.address-card {
     box-shadow: rgb(14 14 14 / 24%) 0px 3px 6px;
     border-radius: 8px;
     padding: 1rem;
-    
+
     display: flex;
     justify-content: space-between;
 }
-.address-card button{
+
+.address-card button {
     border: none;
     outline: none;
     margin-right: 1rem;
     cursor: pointer;
     background: transparent;
 }
-.address-card p{
+
+.address-card p {
     margin-bottom: 4px;
 }
-.address-name{
+
+.address-name {
     color: #24222D;
 }
-.edit-btn i{
-   color: #000;
-   font-size: 22px;
-   background: transparent;
+
+.edit-btn i {
+    color: #000;
+    font-size: 22px;
+    background: transparent;
 }
-.delete-btn .fa.fa-solid.fa-trash{
+
+.delete-btn .fa.fa-solid.fa-trash {
     color: #000;
     font-size: 22px;
 }
 
 
-@media (min-width: 320px) and (max-width: 600px){
-.form-container{
-    flex-wrap: wrap;
-}
-.address-form input {
-    width: 100%;
-}
-.address-card  {
-    padding: 0.5rem;
-}
-.address-card  button{
-    margin-right: 0.5rem;
-}
+@media (min-width: 320px) and (max-width: 600px) {
+    .form-container {
+        flex-wrap: wrap;
+    }
+
+    .address-form input {
+        width: 100%;
+    }
+
+    .address-card {
+        padding: 0.5rem;
+    }
+
+    .address-card button {
+        margin-right: 0.5rem;
+    }
 
 }

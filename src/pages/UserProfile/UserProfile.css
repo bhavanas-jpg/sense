@@ -9,7 +9,6 @@
 .tab-header{
     width: 45rem;
     margin: 0 auto;
-    /* border-radius: 5px; */
     background: rgba(255,255,255,0.6); 
     border-bottom: 1px solid #ccc;
     border-top-left-radius: 5px;

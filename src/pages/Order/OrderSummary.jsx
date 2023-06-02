@@ -47,7 +47,6 @@ const OrderSummary = () => {
   const subTotal = totalPrice - discount;
 
   return (
-    // <section className="container hg-100">
     <>
       {showModal && (
         <div className="order-summary overlay">
@@ -115,7 +114,6 @@ const OrderSummary = () => {
         </div>
       )}
     </>
-    // </section>
   );
 };
 
