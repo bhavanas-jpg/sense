@@ -13,6 +13,7 @@ import arrow from "../../assets/home_page_images/arrow-right.svg"
 
 import "./Home.css";
 import Feature from "./Features/Feature";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
 
@@ -53,6 +54,7 @@ const categoryFilter =(category)=>{
 }
 
   return (
+    <>
     <main className="container">
       <section className="hero-container">
         <div className="hero-text">
@@ -105,7 +107,10 @@ const categoryFilter =(category)=>{
           ))
         }
       </section>
+      
     </main>
+    <Footer />
+   </>
   );
 };
 
