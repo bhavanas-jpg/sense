@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext';
 import { signUpService } from '../../../services/services';
+import { toast } from 'react-toastify';
+import { useData } from '../../../context/DataContext';
 
 const Signup = () => {
+
+  const {setDisable, disable} = useData();
 const [formVal,setFormVal]=useState({
   firstName: "",
   lastName:"",
@@ -14,11 +18,13 @@ const {setAuth} = useAuth();
 const navigate = useNavigate();
 const signUpHandler = async (e, firstName, lastName, email, password)=>{
  e.preventDefault();
-
+ setDisable(true);
  try{
   const res = await signUpService(firstName, lastName, email, password);
 
   if(res.status === 201){
+
+    toast.success("SignUp Successfully")
     localStorage.setItem("token", res.data.encodedToken);
     localStorage.setItem("isAuth", true);
      localStorage.setItem("firstName", res.data.createdUser
@@ -28,7 +34,6 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
      localStorage.setItem("email",res.data.createdUser
 .email )
     
-
     setAuth({
       token: res.data.encodedToken,
       isAuth: true,
@@ -38,8 +43,9 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
     });
     navigate("/")
   }
-
+  setDisable(false);
  }catch(error){
+  toast.error("Couldn't SignUp, try again later!")
   console.error(error);
  }
 } 
@@ -108,6 +114,7 @@ const signUpHandler = async (e, firstName, lastName, email, password)=>{
       </div>
       <div>
         <button 
+        disabled={disable}
         className="signup-btn"
       type="submit">
         SIGN UP

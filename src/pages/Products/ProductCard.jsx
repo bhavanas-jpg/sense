@@ -69,6 +69,7 @@ const ProductCard = ( {product}) => {
 
   const removeProductWishlistServerCall =async()=>{
     setWishlist({...wishlist, removeFromWishlist :true })
+    setDisable(true);
     try{
       const res = await removeFromWishlistService(product._id, auth.token);
       if(res.status === 200 || res.status === 201){
@@ -79,7 +80,7 @@ const ProductCard = ( {product}) => {
           payload: {wishlist: res.data.wishlist}
         }) 
       }
-
+      setDisable(false);
     }catch(error){
       toast.error("Please try again after some time")
     }
@@ -111,6 +112,8 @@ const ProductCard = ( {product}) => {
       > 
        <i className= {wishlist.inWishlist ?"fa fa-thin fa-heart active" : "fa fa-thin fa-heart"}></i>
        </button>
+
+       
         <img src={img} alt="card-image" 
                 onClick={()=> navigate(`/${_id}`)}/>
       <div className="product_card--text">  

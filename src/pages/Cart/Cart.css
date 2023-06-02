@@ -32,6 +32,7 @@
     font-weight: 600;
     letter-spacing: 1.1px;
     margin-bottom: 0.6rem;
+    width: 16rem;
 }
 .product-quantity{
     margin: 1rem 0;
@@ -87,9 +88,9 @@ flex: 20%;
     border-top: 1px solid #d0cfcf;
     padding-top: 6px;
 }
-
-
-
+.cart-detail-product-name{
+    width: 12rem;
+}
 .cart-wishlist-btn{
     border:none;
     outline: none;

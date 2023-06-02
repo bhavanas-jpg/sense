@@ -12,7 +12,7 @@ const Filters = () => {
     (acc, curr) => (Number(curr.price) > acc ? Number(curr.price) : acc),
     0
   );
-  console.log(categoryFilters , "filters");
+ 
 
   useEffect(()=>{
     if(categoryFilters){
@@ -25,9 +25,7 @@ const Filters = () => {
   return (
     <main>
       <p className="filter-icon" onClick={()=>{
-        // toggleFilter()
         setFilterContainer(prev => !prev)
-        
       }}>
        {filterContainer ?"Show" : "Hide" } Filters
         <i className="filter-icon fa fa-solid fa-filter"></i>

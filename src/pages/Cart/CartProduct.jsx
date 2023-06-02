@@ -5,18 +5,22 @@ import { removeFromCart } from "../../services/cart-services/removeFromCart";
 import { cartCounterService } from "../../services/cart-services/cartCounterService";
 import { useData } from "../../context/DataContext";
 import "./Cart.css"
-import { addToWishlistService } from "../../services/wishlist-services";
+import { addToWishlistService, removeFromWishlistService } from "../../services/wishlist-services";
 import { useNavigate } from "react-router-dom";
 import {  toast } from 'react-toastify';
-import CartDetails from "./CartDetails";
+
 
 const CartProduct = ({ product }) => {
-  const {state , dispatch } = useData();
+  const {state , dispatch, setDisable, disable } = useData();
   const { auth } = useAuth();
-  const [inWishlist, setInWishlist] = useState(false);
   const { wishlistProducts} = state;
   const [addingToWishList, setAddingToWishlist] = useState(false);
   const { SET_CART, SET_WISHLIST } = actionTypes;
+  const [wishlist, setWishlist] = useState({
+    inWishlist :false,
+    addingToWishlist: false,
+    removeFromWishlist: false
+  });
   const navigate = useNavigate();
 
   const cartCounterServerCall = async (operation) => {
@@ -45,7 +49,8 @@ const CartProduct = ({ product }) => {
   };
 
   const addToWishlistServerCall =async()=>{
-    setAddingToWishlist(true)
+    setAddingToWishlist(true);
+    setDisable(true);
     try{
     const res = await addToWishlistService(product, auth.token);
     if(res.status === 200 || res.status === 201){
@@ -56,14 +61,34 @@ const CartProduct = ({ product }) => {
         payload: {wishlist : res.data.wishlist}
       })
     }
+    setDisable(false);
     }catch(error){
       console.error(error);
       toast.error("Couldn't add to wishlist, try again later!")
     }
   }
+  
+  const removeProductWishlistServerCall =async()=>{
+    setWishlist({...wishlist, removeFromWishlist :true })
+    setDisable(true);
+    try{
+      const res = await removeFromWishlistService(product._id, auth.token);
+      if(res.status === 200 || res.status === 201){
+        toast.success("Removed from wishlist");
+        setWishlist({...wishlist, removeFromWishlist :false, inWishlist: false});
+        dispatch({
+          type: SET_WISHLIST,
+          payload: {wishlist: res.data.wishlist}
+        }) 
+      }
+      setDisable(false);
+    }catch(error){
+      toast.error("Please try again after some time")
+    }
+  }
+
   useEffect(() => {
-    wishlistProducts.find((item) => item._id === product._id) &&
-      setInWishlist(true);
+    wishlistProducts.find((item) => item._id === product._id && setWishlist({...wishlist,inWishlist:true }))
   }, [ wishlistProducts])
 
   return (
@@ -78,15 +103,22 @@ const CartProduct = ({ product }) => {
           <p className="cart-product-name">{product.name}</p>
           <p>${product.price }</p>
           </div> 
+
           <button 
-             className={inWishlist ? "cart-wishlist-btn active":"cart-wishlist-btn " }
+          disabled={disable}
+             className={wishlist.inWishlist ? "cart-wishlist-btn active":"cart-wishlist-btn " }
              onClick={
-              auth.isAuth ?  inWishlist ?
-                            () => navigate("/wishlist") : ()=>addToWishlistServerCall()
-                            :()=>navigate("/login")
+              auth.isAuth ?
+              wishlist.inWishlist ?
+                () =>{
+                  console.log("remove it");
+                  removeProductWishlistServerCall() 
+                } : 
+                () => addToWishlistServerCall()
+                :() => navigate("/login")
              }
             >
-              <i className={inWishlist ? "fa fa-thin fa-heart active" : "fa fa-thin fa-heart" }></i>       
+              <i className={ wishlist.inWishlist ? "fa fa-thin fa-heart active" : "fa fa-thin fa-heart" }></i>       
             </button>
       </div>
       </div>

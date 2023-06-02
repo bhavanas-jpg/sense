@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loginService } from '../../../services/services';
 import "../Auth.css"
 import { toast } from 'react-toastify';
+import { useData } from '../../../context/DataContext';
 
 
 const Login = () => {
@@ -12,12 +13,13 @@ const {setAuth, auth} = useAuth();
 const navigate = useNavigate();
 const location = useLocation();
 const from =  ( location?.state?.from?.pathname) || "/";
-
+const {setDisable, disable} = useData();
 console.log(auth);
 
 const loginHandler= async(e, email, password)=>{
   setFormVal({email, password});
   e.preventDefault();
+  setDisable(true);
   try{
     const res = await loginService(email, password);
     console.log(res.data , "login response");
@@ -38,8 +40,9 @@ const loginHandler= async(e, email, password)=>{
     });
  navigate(from, {replace: true})
     }
-
+    setDisable(false);
   }catch(error){
+    toast.error("Couldn't Login, try again later!")
     console.error(error)
   }
 }  
@@ -72,11 +75,13 @@ const loginHandler= async(e, email, password)=>{
      </div>
      <div>
      <button 
+     disabled={disable}
      className="login-btn"
      type="submit">LOG IN</button>
      </div>
      <div>
      <button
+      disabled={disable}
      className="guest-login"
    type="submit"
    onClick={(e) =>

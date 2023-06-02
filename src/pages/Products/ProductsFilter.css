@@ -43,13 +43,13 @@
     position:absolute;
     right:2rem;
     top: 1rem;
-    padding: 3px 7px;
+    padding: 5px 7px;
     border: none;
     outline: none;
     font-size: 13px;
     color: rgb(253, 251, 247);
     background-color: rgb(172, 41, 134);
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
 }
 .filter-icon{

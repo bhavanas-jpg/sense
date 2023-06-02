@@ -124,6 +124,7 @@
   letter-spacing: 1px;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+  cursor: pointer;
 }
 
 .arrow-img {

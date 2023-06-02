@@ -16,7 +16,7 @@ const CartDetails = ({ products }) => {
       {products.map((product) => (
         <div key={product._id}>
           <div className="dis-flex">
-            <p>
+            <p className="cart-detail-product-name">
               {product.name}( {product.qty})
             </p>
             <p>{productPrice(product.price, product.qty)}</p>
