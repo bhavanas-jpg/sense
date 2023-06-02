@@ -133,6 +133,38 @@
   margin-left: 15px;
 }
 
+
+@media(min-width: 992px) and (max-width: 1024px){
+  .feature {
+    padding: 25px 4px;
+	}
+   .hero-text {
+    padding: 1.8rem 1.2rem 1.8rem 3rem;
+    height: 362px;
+    width: 322px;
+    background: radial-gradient(rgba(255, 229, 229, 1), rgba(255, 224, 218, 1) 30%, rgba(215, 255, 137, 1) 100%);
+    top: 2.5rem;
+    left: 1.9rem;
+	}
+	.hero-text h1 {
+    font-size: 40px;
+	}
+	.hero-text p {
+    font-size: 16px;
+    width: 224px;
+    padding-bottom: 5px;
+    margin: 17px 0;
+    }
+	.hero-image img {
+    width: 485px;
+    height: 430px;
+	    left: 21rem;
+	}
+	.shop-btn {
+    padding: 10px 25px;
+	}
+}
+
 /**categories sec: css end*/
 /**media query for tabs**/
 @media (min-width: 768px) and (max-width: 990px) {
@@ -230,7 +262,7 @@
 
   /*hero-sec-css-end*/
   .feature-sec {
-    margin: 11rem 0 2rem 0;
+    margin: 13rem 0 2rem 0;
   }
 
   .feature {

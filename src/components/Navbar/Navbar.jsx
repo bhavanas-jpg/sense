@@ -19,7 +19,7 @@ const Navbar = () => {
     <>
       <header className="container">
         <nav className="navbar">
-          <div>
+          <div className="logo-div">
             <NavLink to="/">
               <img src={logo} alt="sense-logo" />
             </NavLink>
@@ -41,7 +41,7 @@ const Navbar = () => {
             }
             />
           </div>
-          <div >
+          <div className="links-div">
             <ul className="list">
             <li className="list-items">
               <NavLink  className="shop-link" to="/products">Shop</NavLink>

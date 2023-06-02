@@ -64,6 +64,26 @@
 }
 
 
+@media (min-width: 320px) and (max-width: 600px){
+    .navbar{
+    padding: 2rem 1rem 0 1rem;
+	flex-wrap: wrap;
+	}
+	.logo-div{
+	 order: 1;
+	 }
+	.links-div{
+	 order: 2;
+	 }
+	.search-input{
+	 order: 3;
+     width: 100%;
+     margin-top: 2.2rem;
+	 }
+	 .search-input input {
+	 padding: 14px 18px;
+     }
+	 }
 
 
 
