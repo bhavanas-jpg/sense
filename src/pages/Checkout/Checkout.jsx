@@ -23,7 +23,7 @@ const Checkout = () => {
   const subTotal = totalPrice - discount;
 
   return (
-    <div className="container ">
+    <div className="container hg-100">
       <div className="checkout ">
         <div className="checkout-address-card">
           <CheckoutAddress />
