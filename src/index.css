@@ -7,14 +7,10 @@
 ul li{
   list-style: none;
 }
-  body {
-    background-color: rgba(0, 0, 0, 0);
-    background-image: linear-gradient( 180deg, rgb(249, 246, 242), rgb(233, 243, 220) 100% );
-    background-repeat: no-repeat;
-    background-size: auto;
+  body { 
+    background: linear-gradient( 180deg, rgb(249, 246, 242), rgb(233, 243, 220) 100% );
     color: rgba(36, 34, 45, 0.75);
-    font-family: "Harmonia-Sans-Regular" ;
-    
+    font-family: "Harmonia-Sans-Regular";  
 }
 .heading{
   margin-bottom: 1rem;
@@ -22,9 +18,9 @@ ul li{
 h2{
   letter-spacing: 1.2px;
 }
-.hg-100{
+/* .hg-100{
   height: 100vh;
-}
+} */
 .ml-1{
   margin-left: 1rem;
 }
