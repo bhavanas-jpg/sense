@@ -25,7 +25,7 @@ const Cart = () => {
       onClick={()=>navigate("/products")}>Shop Now</button>
       </div>
      : 
-     <div className="container cart" >
+     <div className="container hg-100 cart" >
     <h1 className="heading">Your Cart</h1> 
     <section className="cart-section">
       <div className="cart-product--section">

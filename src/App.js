@@ -24,6 +24,7 @@ import OrderSuccessful from "./pages/Order/OrderSuccessful";
 import Loader from "./components/Loader";
 import { useData } from "./context/DataContext";
 import ProductNotFound from "./pages/Products/ProductNotFound";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -77,11 +78,10 @@ function App() {
         <Route path="/orderPlaced" element={<OrderSuccessful />}/>
         <Route path="/loading" element={<Loader />}/>
         <Route path="/noItems" element={<ProductNotFound/>}/>
-        <Route path="/mockman" element={<MockAPI />} />
-        
+        <Route path="/mockman" element={<MockAPI />} />      
       </Routes>
 
-     
+     <Footer />
     </div>
   );
 }

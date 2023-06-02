@@ -7,7 +7,7 @@ const UserProfile = () => {
   const [currPage, setCurrPage] = useState("Profile");
 
   return (
-    <div className="container ">
+    <div className="container hg-100">
       <div className="tab-header">
         <ul className="user-profile--links">
           <li className={currPage === "Profile" ? "active-link" : ""}>
