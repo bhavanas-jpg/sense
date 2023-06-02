@@ -14,7 +14,7 @@ const navigate = useNavigate();
 const location = useLocation();
 const from =  ( location?.state?.from?.pathname) || "/";
 const {setDisable, disable} = useData();
-console.log(auth);
+
 
 const loginHandler= async(e, email, password)=>{
   setFormVal({email, password});
@@ -22,7 +22,6 @@ const loginHandler= async(e, email, password)=>{
   setDisable(true);
   try{
     const res = await loginService(email, password);
-    console.log(res.data , "login response");
     if(res.status === 200){
      toast.success("Login Successfully")
       localStorage.setItem("token", res.data.encodedToken);

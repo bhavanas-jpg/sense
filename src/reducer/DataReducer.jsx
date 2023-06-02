@@ -72,7 +72,6 @@ export const dataReducer =(state, action)=>{
 				wishlistProducts: []
             }   
         case actionTypes.CART_RESET:
-            console.log(action.payload);
             return{
                 ...state,
                 cartProducts: action.payload
