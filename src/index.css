@@ -66,6 +66,7 @@ h2{
   font-size: 1rem; 
   margin-top: 1rem;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 .add-address--btn{
   padding: 8px 15px;
