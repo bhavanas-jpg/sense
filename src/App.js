@@ -24,7 +24,8 @@ import OrderSuccessful from "./pages/Order/OrderSuccessful";
 import Loader from "./components/Loader";
 import { useData } from "./context/DataContext";
 import ProductNotFound from "./pages/Products/ProductNotFound";
-import Footer from "./components/Footer/Footer";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
+
 
 
 function App() {
@@ -33,9 +34,9 @@ function App() {
     <div className="App">
     
       <ToastContainer
-					// theme="colored"
+					theme="colored"
 					autoClose={1000}
-					position="bottom-center"
+					position="top-center"
 				/>
        
       <Navbar />
@@ -72,13 +73,14 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/:productId" element={<ProductDetails />}/>
+        <Route path="/products/:productId" element={<ProductDetails />}/>
         <Route path="/checkout" element={<Checkout />}/>
         <Route path="/orderSummary" element={<OrderSummary />}/>
         <Route path="/orderPlaced" element={<OrderSuccessful />}/>
         <Route path="/loading" element={<Loader />}/>
         <Route path="/noItems" element={<ProductNotFound/>}/>
-        <Route path="/mockman" element={<MockAPI />} />      
+        <Route path="/mockman" element={<MockAPI />} />  
+        <Route path="*" element={<PageNotFound/>}  />  
       </Routes>
 
  
