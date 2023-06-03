@@ -11,9 +11,9 @@ const Checkout = () => {
   } = useAddress();
   const {state :{cartProducts}, showModal, setShowModal} = useData();
 
+  
 
-  console.log(selectedAddress , "from place order");
-  console.log( selectedAddress.length );
+
 
 
   const productPrice=(price, qty) => Number(price) * qty;
@@ -87,7 +87,9 @@ const Checkout = () => {
  <button
  disabled={!Object.keys(selectedAddress).length }
  onClick={()=>setShowModal(true)}
- className="order-btn">Place Order</button>
+ className="order-btn">
+  Place Order
+  </button>
 {showModal && <OrderSummary />}
 
             </div>

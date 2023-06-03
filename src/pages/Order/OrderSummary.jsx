@@ -16,16 +16,20 @@ const OrderSummary = () => {
     setShowModal,
     dispatch,
   } = useData();
-  const { auth } = useAuth();
-
+  const {  auth } = useAuth();
   const navigate = useNavigate();
-  let res = null;
+  const totalPrice = cartProducts.reduce(
+    (acc, curr) => (acc += Number(curr.price) * curr.qty),
+    0
+  );
+  const discount = Math.floor((totalPrice * 20) / 100, 2);
+  const subTotal = totalPrice - discount;
 
   const cartReset = () => {
     cartProducts.map(({ _id }) =>
       (async () => {
         try {
-          res = await removeFromCart(_id, auth.token);
+       const   res = await removeFromCart(_id, auth.token);
           if (res.status === 200) {
             dispatch({
               type: "CART_RESET",
@@ -39,12 +43,64 @@ const OrderSummary = () => {
     );
   };
 
-  const totalPrice = cartProducts.reduce(
-    (acc, curr) => (acc += Number(curr.price) * curr.qty),
-    0
-  );
-  const discount = Math.floor((totalPrice * 20) / 100, 2);
-  const subTotal = totalPrice - discount;
+  const loadScript = async (url) => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = url;
+
+      script.onload = () => {
+        resolve(true);
+      };
+
+      script.onerror = () => {
+        resolve(false);
+      };
+
+      document.body.appendChild(script);
+    });
+  };
+
+  const displayRazorpay = async () => {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      console.log("Razorpay SDK failed to load, check you connection", "error");
+      return;
+    }
+
+    const options = {
+      key: "rzp_test_6Tdsj7tud9D3Y8",
+      amount: subTotal *100*83,
+      currency: "INR",
+      name: "Sense",
+      handler: function () {
+        navigate("/orderPlaced");
+       cartReset();
+      },
+      prefill: {
+        name: auth ? `${auth.firstName} ${auth.lastName}` : "Test",
+        email: auth ? auth.email : "abc@gmail.com",
+        contact: "9833445762",
+      },
+      theme: {
+        color: "#f9ca24",
+      },
+    };
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
+
+  const clickHandler =()=>{
+    displayRazorpay();
+    setTimeout(() => {
+      navigate("/");
+      setShowModal(false);
+    }, 1500);
+  }
+
 
  console.log(selectedAddress.length);
 
@@ -103,14 +159,7 @@ const OrderSummary = () => {
               </div>
               <div className="confirm-order">
                 <button
-                  onClick={() => {
-                    setTimeout(() => {
-                      navigate("/");
-                      setShowModal(false);
-                    }, 1500);
-                    navigate("/orderPlaced");
-                    cartReset();
-                  }}
+                  onClick={clickHandler}
                 >
                   Confirm Order
                 </button>
