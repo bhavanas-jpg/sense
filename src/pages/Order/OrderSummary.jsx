@@ -46,6 +46,8 @@ const OrderSummary = () => {
   const discount = Math.floor((totalPrice * 20) / 100, 2);
   const subTotal = totalPrice - discount;
 
+ console.log(selectedAddress.length);
+
   return (
     <>
       {showModal && (
@@ -62,6 +64,8 @@ const OrderSummary = () => {
               <h3 className="mb-1 txt-algn--center">Order Summary</h3>
               <div>
                 <h4 className="mb-1">Address</h4>
+                {
+                    selectedAddress  === {} ? <p>No Address Selected</p> : 
                 <div className="selected-address--order">
                   <p>
                     <b>{selectedAddress.name}</b>
@@ -74,7 +78,9 @@ const OrderSummary = () => {
                     {selectedAddress.country} -{selectedAddress.pincode}
                   </p>
                   <p>Phone Number: {selectedAddress.phone}</p>
-                </div>
+                  </div>
+                }
+               
               </div>
               <div className="ordered-products">
                 <p>

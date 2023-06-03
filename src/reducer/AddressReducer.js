@@ -37,6 +37,7 @@ export const addressListReducer = (state, action) => {
           ...state,
           addressList: editedAddress,
           editIndex: null,
+          selectedAddress: editedAddress.find(({id})=> id === state.selectedAddress.id)
         };
       }
       return {
@@ -62,12 +63,22 @@ export const addressListReducer = (state, action) => {
       const deletedAddress = state.addressList.filter(
         ({ id }) => id !== action.payload
       );
+      
+    
+      console.log(state.selectedAddress)
       return {
         ...state,
         addressList: [...deletedAddress],
+        selectedAddress :(action.payload === state.selectedAddress?.id) ? {} : state.selectedAddress
+        
       };
+
+
     case "SELECTED_ADDRESS":
-      const selectedAddress = state.addressList.find(
+      console.log(action.payload , "selected address");
+
+      const selectedAddress = action.payload === undefined ? {} : state.addressList.find(
+        
         ({ id }) => id === action.payload
       );
       return {

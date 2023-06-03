@@ -53,6 +53,12 @@
     margin-top: 1rem;
     cursor: pointer;
 }
+.order-btn:disabled{
+    background-color:#e1dfdf;
+    cursor: none;
+    box-shadow: none;
+    color: rgba(57, 56, 56, 1);
+}
 .subTotal-price{
     color:rgba(57, 56, 56, 1);
     font-weight: 600;

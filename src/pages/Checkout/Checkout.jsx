@@ -3,7 +3,6 @@ import CheckoutAddress from "./CheckoutAddress";
 import { useAddress } from "../../context/AddressContext";
 import "./Checkout.css"
 import { useData } from "../../context/DataContext";
-import { useNavigate } from "react-router-dom";
 import OrderSummary from "../Order/OrderSummary";
 
 const Checkout = () => {
@@ -11,7 +10,10 @@ const Checkout = () => {
     addressListState: { selectedAddress },
   } = useAddress();
   const {state :{cartProducts}, showModal, setShowModal} = useData();
-  const navigate = useNavigate();
+
+
+  console.log(selectedAddress , "from place order");
+  console.log( selectedAddress.length );
 
 
   const productPrice=(price, qty) => Number(price) * qty;
@@ -61,6 +63,9 @@ const Checkout = () => {
           </div>
           <div >
             <h4>Delivering To:</h4>
+            {
+              Object.keys(selectedAddress).length === 0
+            ? <p>No Address Selected</p> : 
             <div   className="selected-address">
               <p>
                 <b>{selectedAddress.name}</b>
@@ -74,11 +79,13 @@ const Checkout = () => {
               </p>
               <p>Phone Number: {selectedAddress.phone}</p>
             </div>
+             }
             <div
              style={{display: "flex",
     justifyContent: "center",
     alignItems: "center"}}>
  <button
+ disabled={!Object.keys(selectedAddress).length }
  onClick={()=>setShowModal(true)}
  className="order-btn">Place Order</button>
 {showModal && <OrderSummary />}
