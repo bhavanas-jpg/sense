@@ -1,4 +1,3 @@
-
 .navbar {
     padding: 2rem 0;
     display: flex;
@@ -32,6 +31,7 @@
     outline: none;
     padding: 8px 18px;
     border-radius: 20px;
+    border: 1px solid #000;
 }
 
 .nav-icon {
@@ -82,7 +82,7 @@
 
     .search-input input {
         padding: 14px 18px;
-        border: 1px solid #000;
+
     }
 
     .list-items span {
@@ -95,16 +95,10 @@
     }
 }
 
-
-
 /**media query for tablet**/
 @media(min-width: 768px) {
-
-
     .search-input input {
         width: 140%;
-        border: none;
-        outline: none;
         padding: 12px 20px;
         border-radius: 20px;
     }
@@ -112,7 +106,6 @@
 
 /**media query  for desktop**/
 @media(min-width: 1024px) {
-
 
     .list-items {
         padding: 0 20px;
@@ -124,11 +117,8 @@
     }
 
     .search-input input {
-        border: none;
-        outline: none;
         padding: 12px 20px;
         width: 180%;
-        border-radius: 20px;
     }
 
 }

@@ -10,19 +10,19 @@ const Products = () => {
 
   return (
     <>
-      {filteredData.length === 0 ? (
-        <ProductNotFound />
-      ) : (
-        <main className="container products-section">
+      <main className="container products-section">
           <h2 className="mb-1">All Products</h2>
           <Filters />
+      {filteredData.length === 0 ? (
+        <ProductNotFound />
+      ) : ( 
           <div className="product-card-container">
             {filteredData.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
-          </div>
-        </main>
+          </div>    
       )}
+      </main>
     </>
   );
 };

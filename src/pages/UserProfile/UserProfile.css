@@ -26,8 +26,8 @@ justify-content: space-around;
     padding: 8px 15px;
     border: none;
     outline: none;
-    background-color: #000;
-    border-radius: 20px;
+    background-color: #ac2986;
+    border-radius: 5px;
     color: #fff;
     cursor:pointer;
 }
