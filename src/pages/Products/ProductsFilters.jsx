@@ -1,39 +1,37 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { useData } from "../../context/DataContext";
 import { actionTypes, sortBy, filters } from "../../reducer/actionTypes";
 import "./ProductsFilter.css";
 
 const Filters = () => {
-  const [filterContainer, setFilterContainer] = useState(true);
-  const { state, dispatch, categoryFilters, setCategoryFilters} = useData();
+  const { state, dispatch, filterContainer, setFilterContainer } = useData();
 
   const ratings = ["4", "3", "2", "1"];
   const maxValue = state.productsData.reduce(
     (acc, curr) => (Number(curr.price) > acc ? Number(curr.price) : acc),
     0
   );
- 
-
-  useEffect(()=>{
-    if(categoryFilters){
-      setFilterContainer(false) 
-    } 
-    setCategoryFilters(true) 
-  },[])
-  
 
   return (
     <main>
-      <p className="filter-icon filter-title" onClick={()=>{
-        setFilterContainer(prev => !prev)
-      }}>
-       {filterContainer ?"Show" : "Hide" } Filters
+      <p
+        className="filter-icon filter-title"
+        onClick={() => {
+          setFilterContainer((prev) => !prev);
+        }}
+      >
+        {filterContainer ? "Show" : "Hide"} Filters
         <i className="filter-icon fa fa-solid fa-filter"></i>
       </p>
 
-
       <div
-        style={{ maxHeight: categoryFilters && filterContainer ? "0px" : window.innerWidth <= "400px" ? "400px": "600px" }}
+        style={{
+          maxHeight: filterContainer
+            ? "0px"
+            : window.innerWidth <= "400px"
+            ? "400px"
+            : "600px",
+        }}
         className="accordion__content"
       >
         <div className="filter-container">

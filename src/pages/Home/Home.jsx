@@ -17,7 +17,7 @@ import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { state, dispatch, setCategoryFilters } = useData();
+  const { state, dispatch, setFilterContainer } = useData();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Home = () => {
       },
     });
     navigate("/products");
-    setCategoryFilters(true);
+    setFilterContainer(false);
   };
 
   return (

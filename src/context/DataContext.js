@@ -18,7 +18,7 @@ export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, inititalState);
   const [loader, setLoader] = useState(true);
   const [disable, setDisable] = useState(false);
-  const [categoryFilters, setCategoryFilters] = useState(false);
+  const [filterContainer, setFilterContainer] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const { SET_CART, SET_WISHLIST } = actionTypes;
   const { auth } = useAuth();
@@ -92,8 +92,8 @@ export const DataProvider = ({ children }) => {
         setShowModal,
         disable,
         setDisable,
-        categoryFilters,
-        setCategoryFilters,
+        filterContainer, 
+        setFilterContainer
       }}
     >
       {children}
