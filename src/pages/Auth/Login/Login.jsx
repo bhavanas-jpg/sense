@@ -15,6 +15,12 @@ const location = useLocation();
 const from =  ( location?.state?.from?.pathname) || "/";
 const {setDisable, disable} = useData();
 
+const [showPassword, setShowPassword] = useState(false);
+
+const handlePasswordToggle =()=>{
+  setShowPassword(!showPassword);
+}
+
 
 const loginHandler= async(e, email, password)=>{
   setFormVal({email, password});
@@ -63,15 +69,22 @@ const loginHandler= async(e, email, password)=>{
     onChange={(e)=> setFormVal(prev=>({...prev, email: e.target.value}) )}
     />
      </div>
-     <div>     
+     <div className="password-input">     
     <input 
     placeholder='Password'
-    type="password"
+    type={showPassword ? "text":"password"}
     required
     value={formVal.password}
     onChange={(e)=> setFormVal(prev=>({...prev, password: e.target.value}) )} 
     />
+     <span 
+     className="toggle-icon"
+     onClick={handlePasswordToggle}>
+      {showPassword ?  <i class="fa fa-eye"></i> : <i class=" fa fa-eye-slash"></i>} 
+      </span>
+     
      </div>
+    
      <div>
      <button 
      disabled={disable}

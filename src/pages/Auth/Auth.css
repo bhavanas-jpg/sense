@@ -1,61 +1,103 @@
 .login .login-container,
-.signup-container{
+.signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
 }
+
 .login-form,
-.signup-form{
+.signup-form {
     width: 550px;
     border-radius: 5px;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background: rgba(220, 243, 185, 0.3);
-   padding: 1rem 0;
+    padding: 1rem 0;
 }
+
 .login-form h2,
-.signup-form h2
-{
+.signup-form h2 {
     margin: 1rem 0;
 }
-.login-form p{
+
+.login-form p {
     margin-bottom: 1.2rem;
 }
+
 .login-form input,
-.signup-form input{
+.signup-form input {
     width: 300px;
     padding: 15px 20px;
     margin-bottom: 1.2rem;
     outline: none;
+    border: 0.7px solid #000;
 }
+
 .login-form button,
-.signup-form button{
+.signup-form button {
     width: 300px;
     text-align: center;
     margin-bottom: 1.2rem;
     padding: 9px 0;
-    cursor: pointer; 
-    border:none;
+    cursor: pointer;
+    border: none;
     outline: none;
+    border-radius: 5px;
 }
+
 .login-btn,
-.signup-btn{
+.signup-btn {
     background: #000;
     color: #fff;
 }
+
 .login-btn:hover,
-.signup-btn:hover{
+.signup-btn:hover {
     background: rgb(172, 41, 134);
     color: #fff;
 }
+
 .signup-link,
-.login-link{
+.login-link {
     color: #151414;
     text-decoration: none;
 }
-.guest-login{
+
+.guest-login {
     background-color: rgb(197 217 164);
 }
 
+.password-input {
+    position: relative;
+}
+
+.toggle-icon {
+    position: absolute;
+    top: 0.9rem;
+    right: 9rem;
+    cursor: pointer;
+}
+.toggle-icon i{
+    font-size: 18px;
+}
+.confirm-password input{
+    margin-bottom: 0;
+}
+.confirm-password{
+    margin-bottom: 1.2rem;
+}
+.password-error-msg{
+    color: rgb(228, 56, 56);
+    font-size: 14px;
+    
+}
+
 /**sign up css**/
+@media (min-width: 320px) and (max-width: 600px){
+    .toggle-icon {
+        position: absolute;
+    
+        right: 3rem;
+    }
+}
