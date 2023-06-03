@@ -115,10 +115,10 @@ const ProductCard = ( {product}) => {
 
        
         <img src={img} alt="card-image" 
-                onClick={()=> navigate(`/${_id}`)}/>
+                onClick={()=> navigate(`/products/${_id}`)}/>
       <div className="product_card--text">  
         <h3 className="product-card--title"
-        onClick={()=> navigate(`/${_id}`)}
+        onClick={()=> navigate(`/products/${_id}`)}
         >{name}</h3>
         <p>${price}</p>
         <p className="product-ratings">{ratings}
