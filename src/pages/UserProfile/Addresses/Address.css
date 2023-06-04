@@ -10,23 +10,26 @@
 .address-form-btn {
     border: none;
     outline: none;
-    border-radius: 15px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
     padding: 5px 10px;
 }
 
-.save-btn {
-    background-color: rgb(188, 235, 188);
-
-}
-
 .cancel-btn {
-    background-color: rgb(252, 116, 116);
-
+    background-color: #dc2626;
 }
 
 .dummy-btn {
-    background-color: #9ccdf5;
+    background-color: #ac2986;
+}
+.save-btn:disabled{
+    background-color: #959795;
+    cursor: none;
+}
+.save-btn {
+    background-color: #14b114;
 }
 
 
