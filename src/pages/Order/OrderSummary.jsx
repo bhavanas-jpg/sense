@@ -75,9 +75,13 @@ const OrderSummary = () => {
       amount: subTotal *100*83,
       currency: "INR",
       name: "Sense",
-      handler: function () {
+      handler: function () {     
+        setTimeout(() => { 
+          navigate("/");
+        }, 1000)
         navigate("/orderPlaced");
        cartReset();
+   
       },
       prefill: {
         name: auth ? `${auth.firstName} ${auth.lastName}` : "Test",
@@ -95,10 +99,10 @@ const OrderSummary = () => {
 
   const clickHandler =()=>{
     displayRazorpay();
-    setTimeout(() => {
-      navigate("/");
+    setTimeout(() => { 
       setShowModal(false);
     }, 1500);
+    
   }
 
 
