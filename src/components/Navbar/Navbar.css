@@ -7,6 +7,7 @@
 
 .list {
     display: flex;
+    align-items: baseline;
 }
 
 .list-items {
@@ -51,7 +52,7 @@
     align-items: center;
     border-radius: 50%;
     font-size: 11px;
-    margin-left: 1.2rem;
+    margin-left: 1rem;
     font-weight: bold;
 }
 
@@ -89,7 +90,7 @@
         position: absolute;
         width: 16px;
         height: 16px;
-        top: 2.3rem;
+        top: 2.7rem;
         font-size: 9px;
         margin-left: 0.8rem;
     }

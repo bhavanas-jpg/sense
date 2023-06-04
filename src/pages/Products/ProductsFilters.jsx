@@ -30,7 +30,7 @@ const Filters = () => {
             ? "0px"
             : window.innerWidth <= "400px"
             ? "400px"
-            : "600px",
+            : "800px",
         }}
         className="accordion__content"
       >
