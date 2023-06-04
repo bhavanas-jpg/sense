@@ -1,4 +1,4 @@
-# Plantique Store
+# Sense 
 
 [Sense]() - An E-Commerce website for skin ,body and hair care products.
 
