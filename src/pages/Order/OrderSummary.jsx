@@ -91,7 +91,7 @@ const OrderSummary = () => {
         contact: "9833445762",
       },
       theme: {
-        color: "#f9ca24",
+        color: "#ac2986",
       },
     };
     const paymentObject = new window.Razorpay(options);

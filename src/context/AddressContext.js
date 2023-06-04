@@ -19,7 +19,7 @@ export const AddressProvider = ({ children }) => {
       phone: "",
     },
   });
-  const [formValues, setFormValues] = useState();
+  const [formValues, setFormValues] = useState({});
   const [checkoutAddress, setCheckoutAddress] = useState();
 
   const [addressListState, addressDispatch] = useReducer(

@@ -25,9 +25,11 @@ const AddressForm = () => {
     phone: "9090907889",
   };
 
+  
+
   const changeHandler = (e) => {
     const { name, value } = e.target;
-    setFormValues((prev) => ({ ...prev, [name]: value }));
+    setFormValues((prev) => ({ ...prev, [name]: value }))
     setDisable(false);
   };
 
@@ -48,9 +50,12 @@ const AddressForm = () => {
   };
 
   const submitHandler = (e) => {
-    e.preventDefault();
-    resetForm();
-    navigate("/profile/addresses");
+      e.preventDefault();
+      addressDispatch({
+        type: "ADD_ADDRESS",
+        payload: formValues,
+      });
+      resetForm();
   };
 
   return (
@@ -63,7 +68,7 @@ const AddressForm = () => {
               name="name"
               required
               placeholder="Enter name"
-              value={formValues?.name}
+              value={formValues.name}
               onChange={changeHandler}
             />
             <input
@@ -71,7 +76,7 @@ const AddressForm = () => {
               name="street"
               required
               placeholder="Enter House No. and Street address"
-              value={formValues?.street}
+              value={formValues.street}
               onChange={changeHandler}
             />
             <div className="d-flex">
@@ -128,15 +133,7 @@ const AddressForm = () => {
               <button
                 disabled={disable}
                 className="save-btn address-form-btn"
-                type="submit"
-                onClick={(e) => {
-                  e.preventDefault();
-                  addressDispatch({
-                    type: "ADD_ADDRESS",
-                    payload: formValues,
-                  });
-                  resetForm();
-                }}
+                type="submit"   
               >
                 Save
               </button>
