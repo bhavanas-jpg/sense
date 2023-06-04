@@ -23,8 +23,6 @@ const CheckoutAddress = () => {
     setCheckoutAddress(true);
   };
 
-  console.log(selectedAddress.id);
-
   return (
     <div>
       <button className="add-address--btn" onClick={addressForm}>

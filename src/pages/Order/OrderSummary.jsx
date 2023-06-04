@@ -16,7 +16,7 @@ const OrderSummary = () => {
     setShowModal,
     dispatch,
   } = useData();
-  const {  auth } = useAuth();
+  const { auth } = useAuth();
   const navigate = useNavigate();
   const totalPrice = cartProducts.reduce(
     (acc, curr) => (acc += Number(curr.price) * curr.qty),
@@ -29,7 +29,7 @@ const OrderSummary = () => {
     cartProducts.map(({ _id }) =>
       (async () => {
         try {
-       const   res = await removeFromCart(_id, auth.token);
+          const res = await removeFromCart(_id, auth.token);
           if (res.status === 200) {
             dispatch({
               type: "CART_RESET",
@@ -66,22 +66,24 @@ const OrderSummary = () => {
     );
 
     if (!res) {
-      console.log("Razorpay SDK failed to load, check you connection", "error");
+      console.error(
+        "Razorpay SDK failed to load, check you connection",
+        "error"
+      );
       return;
     }
 
     const options = {
       key: "rzp_test_6Tdsj7tud9D3Y8",
-      amount: subTotal *100*83,
+      amount: subTotal * 100 * 83,
       currency: "INR",
       name: "Sense",
-      handler: function () {     
-        setTimeout(() => { 
+      handler: function () {
+        setTimeout(() => {
           navigate("/");
-        }, 1000)
+        }, 1000);
         navigate("/orderPlaced");
-       cartReset();
-   
+        cartReset();
       },
       prefill: {
         name: auth ? `${auth.firstName} ${auth.lastName}` : "Test",
@@ -96,17 +98,12 @@ const OrderSummary = () => {
     paymentObject.open();
   };
 
-
-  const clickHandler =()=>{
+  const clickHandler = () => {
     displayRazorpay();
-    setTimeout(() => { 
+    setTimeout(() => {
       setShowModal(false);
     }, 1500);
-    
-  }
-
-
- console.log(selectedAddress.length);
+  };
 
   return (
     <>
@@ -124,23 +121,23 @@ const OrderSummary = () => {
               <h3 className="mb-1 txt-algn--center">Order Summary</h3>
               <div>
                 <h4 className="mb-1">Address</h4>
-                {
-                    selectedAddress  === {} ? <p>No Address Selected</p> : 
-                <div className="selected-address--order">
-                  <p>
-                    <b>{selectedAddress.name}</b>
-                  </p>
-                  <p>{selectedAddress.street}</p>
-                  <p>
-                    {selectedAddress.city}, {selectedAddress.state}
-                  </p>
-                  <p>
-                    {selectedAddress.country} -{selectedAddress.pincode}
-                  </p>
-                  <p>Phone Number: {selectedAddress.phone}</p>
+                {selectedAddress === {} ? (
+                  <p>No Address Selected</p>
+                ) : (
+                  <div className="selected-address--order">
+                    <p>
+                      <b>{selectedAddress.name}</b>
+                    </p>
+                    <p>{selectedAddress.street}</p>
+                    <p>
+                      {selectedAddress.city}, {selectedAddress.state}
+                    </p>
+                    <p>
+                      {selectedAddress.country} -{selectedAddress.pincode}
+                    </p>
+                    <p>Phone Number: {selectedAddress.phone}</p>
                   </div>
-                }
-               
+                )}
               </div>
               <div className="ordered-products">
                 <p>
@@ -162,11 +159,7 @@ const OrderSummary = () => {
                 </p>
               </div>
               <div className="confirm-order">
-                <button
-                  onClick={clickHandler}
-                >
-                  Confirm Order
-                </button>
+                <button onClick={clickHandler}>Confirm Order</button>
               </div>
             </div>
           </div>

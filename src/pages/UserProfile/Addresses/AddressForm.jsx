@@ -60,69 +60,70 @@ const AddressForm = () => {
           <form onSubmit={submitHandler} className="form-container">
             <input
               type="text"
-              placeholder="Enter name"
               name="name"
+              required
+              placeholder="Enter name"
               value={formValues?.name}
               onChange={changeHandler}
-              required
             />
             <input
               type="text"
-              placeholder="Enter House No. and Street address"
               name="street"
+              required
+              placeholder="Enter House No. and Street address"
               value={formValues?.street}
               onChange={changeHandler}
-              required
             />
             <div className="d-flex">
               <input
                 className="flex-wd--50"
                 type="text"
-                placeholder="Enter city"
                 name="city"
+                required
+                placeholder="Enter city"
                 value={formValues?.city}
                 onChange={changeHandler}
-                required
               />
               <input
                 className="flex-wd--50 ml-1"
                 type="text"
-                placeholder="Enter state"
                 name="state"
+                required
+                placeholder="Enter state"
                 value={formValues?.state}
                 onChange={changeHandler}
-                required
               />
             </div>
             <div className="d-flex ">
               <input
                 className="flex-wd--50"
                 type="text"
-                placeholder="Enter pincode"
                 name="pincode"
+                required
+                placeholder="Enter pincode"
                 value={formValues?.pincode}
                 onChange={changeHandler}
-                required
               />
               <input
                 className="flex-wd--50 ml-1"
                 type="text"
-                placeholder="Enter country"
                 name="country"
+                required
+                placeholder="Enter country"
                 value={formValues?.country}
                 onChange={changeHandler}
-                required
               />
             </div>
             <input
               type="text"
-              placeholder="Enter phone number"
               name="phone"
+              required
+              placeholder="Enter phone number"
               value={formValues?.phone}
               onChange={changeHandler}
               pattern="[0-9]{10}"
-              required
             />
+
             <div>
               <button
                 disabled={disable}

@@ -12,7 +12,7 @@ const Signup = () => {
     lastName: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
   const { setAuth } = useAuth();
   const navigate = useNavigate();
@@ -20,22 +20,20 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
 
-  const handlePasswordToggle =()=>{
+  const handlePasswordToggle = () => {
     setShowPassword(!showPassword);
+  };
+  const handleConfirmPasswordToggler = () => {
+    setConfirmPassword(!confirmPassword);
+  };
 
-  }
-  const handleConfirmPasswordToggler = () =>{
-    setConfirmPassword(!confirmPassword)
-  }
+  const handlePasswordChange = (e) => {
+    setPasswordMatch(e.target.value === formVal.confirmPassword);
+  };
 
-  console.log(passwordMatch);
-  const handlePasswordChange = (e)=>{
-  setPasswordMatch(e.target.value === formVal.confirmPassword )
-  }
-
-  const handleConfirmPasswordChange = (e)=>{
-    setPasswordMatch(e.target.value === formVal.password )
-  }
+  const handleConfirmPasswordChange = (e) => {
+    setPasswordMatch(e.target.value === formVal.password);
+  };
 
   const signUpHandler = async (e, firstName, lastName, email, password) => {
     e.preventDefault();
@@ -122,46 +120,49 @@ const Signup = () => {
           </div>
           <div className="password-input">
             <input
-              type={showPassword ? "text":"password"}
+              type={showPassword ? "text" : "password"}
               id="pwd"
               placeholder="Password"
               required
-              onChange={(e) =>{
+              onChange={(e) => {
                 setFormVal((prev) => ({ ...prev, password: e.target.value }));
-                handlePasswordChange(e)
-              }
-               
-              }
+                handlePasswordChange(e);
+              }}
             />
-            <span 
-          className="toggle-icon"
-          onClick={handlePasswordToggle}>
-          {showPassword ?  <i class="fa fa-eye"></i> : <i class=" fa fa-eye-slash"></i>} 
-          </span>
+            <span className="toggle-icon" onClick={handlePasswordToggle}>
+              {showPassword ? (
+                <i class="fa fa-eye"></i>
+              ) : (
+                <i class=" fa fa-eye-slash"></i>
+              )}
+            </span>
           </div>
           <div className="password-input confirm-password">
             <input
-              type={confirmPassword ? "text":"password"}
+              type={confirmPassword ? "text" : "password"}
               id="confirm-pwd"
               placeholder=" Confirm Password"
               required
-              onChange={(e) =>
-                {
-                setFormVal((prev) => ({ ...prev,  confirmPassword: e.target.value }))
-                handleConfirmPasswordChange(e)
-                }
-                
-              }
+              onChange={(e) => {
+                setFormVal((prev) => ({
+                  ...prev,
+                  confirmPassword: e.target.value,
+                }));
+                handleConfirmPasswordChange(e);
+              }}
             />
-            <span 
-          className="toggle-icon"
-          onClick={handleConfirmPasswordToggler}>
-          {confirmPassword ?  <i class="fa fa-eye"></i> : <i class=" fa fa-eye-slash"></i>} 
-          </span>
-          {!passwordMatch && (
-           <p 
-           className="password-error-msg"
-           >Passwords not matched</p>
+            <span
+              className="toggle-icon"
+              onClick={handleConfirmPasswordToggler}
+            >
+              {confirmPassword ? (
+                <i class="fa fa-eye"></i>
+              ) : (
+                <i class=" fa fa-eye-slash"></i>
+              )}
+            </span>
+            {!passwordMatch && (
+              <p className="password-error-msg">Passwords not matched</p>
             )}
           </div>
           <div>
